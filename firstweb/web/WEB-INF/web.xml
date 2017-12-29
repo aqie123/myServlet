@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <!--配置servlet -->
+    <!--配置servlet1 -->
     <servlet>
         <!-- servlet名称 自定义 -->
         <servlet-name>HelloServlet</servlet-name>
@@ -15,5 +15,41 @@
         <servlet-name>HelloServlet</servlet-name>
         <!-- 公开给外面访问的名称 -->
         <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <!--配置servlet2 -->
+    <servlet>
+        <servlet-name>RequestServlet</servlet-name>
+        <servlet-class>RequestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestServlet</servlet-name>
+        <url-pattern>/req</url-pattern>
+    </servlet-mapping>
+    <!--配置servlet3 -->
+    <servlet>
+        <servlet-name>Request2Servlet</servlet-name>
+        <servlet-class>Request2Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Request2Servlet</servlet-name>
+        <url-pattern>/req2</url-pattern>
+    </servlet-mapping>
+    <!--配置servlet3 -->
+    <servlet>
+        <servlet-name>Request3Servlet</servlet-name>
+        <servlet-class>Request3Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Request3Servlet</servlet-name>
+        <url-pattern>/req3</url-pattern>
+    </servlet-mapping>
+    <!--配置servlet3 -->
+    <servlet>
+        <servlet-name>Request4Servlet</servlet-name>
+        <servlet-class>Request4Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Request4Servlet</servlet-name>
+        <url-pattern>/req4</url-pattern>
     </servlet-mapping>
 </web-app>
