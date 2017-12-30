@@ -43,7 +43,7 @@
         <servlet-name>Request3Servlet</servlet-name>
         <url-pattern>/req3</url-pattern>
     </servlet-mapping>
-    <!--配置servlet3 -->
+    <!--配置servlet4 -->
     <servlet>
         <servlet-name>Request4Servlet</servlet-name>
         <servlet-class>Request4Servlet</servlet-class>
@@ -51,5 +51,14 @@
     <servlet-mapping>
         <servlet-name>Request4Servlet</servlet-name>
         <url-pattern>/req4</url-pattern>
+    </servlet-mapping>
+    <!--配置servlet5 -->
+    <servlet>
+        <servlet-name>Request5Servlet</servlet-name>
+        <servlet-class>Request5Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Request5Servlet</servlet-name>
+        <url-pattern>/req5</url-pattern>
     </servlet-mapping>
 </web-app>

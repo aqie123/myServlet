@@ -38,6 +38,19 @@ public class Request4Servlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 通用方法
+        /**
+         req.setCharacterEncoding("utf-8");     // 修改解码时查询的码表,只对post提交有效
+         req.getParameter("name");   // 获取一个值的参数
+         req.getParameterValues("name");     // 获取多个值的参数
+         req.getParameterNames();            // 获取所有参数名称
+         req.getParameterMap();              // 获取所有参数对象
+
+         // get 重新解码
+        String value = request.getParameter("name");  使用 iso-8859-1解码
+         new String(value.getBytes("iso-8859-1"),"utf-8"); 重新使用utf-8解码
+
+         */
+
         String name = req.getParameter("name");
         // 获取所有参数名称列表
         Enumeration<String> enumeration = req.getParameterNames();
