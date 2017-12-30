@@ -3,17 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <!--配置servlet1 -->
+    <!--配置信息servlet1 -->
     <servlet>
         <!-- servlet名称 自定义 -->
         <servlet-name>HelloServlet</servlet-name>
-        <!-- servlet类全名 -->
+        <!-- servlet类全名 包名+类名-->
         <servlet-class>HelloServlet</servlet-class>
+        <!--让servlet在tomcat服务器启动时候自动创建对象-->
+        <load-on-startup>1</load-on-startup>
     </servlet>
+    <!--servlet1 映射信息-->
     <servlet-mapping>
         <!-- servlet名称 和上面保持一致 -->
         <servlet-name>HelloServlet</servlet-name>
-        <!-- 公开给外面访问的名称 -->
+        <!-- servlet映射路径：公开给外面访问的名称 -->
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
     <!--配置servlet2 -->
@@ -60,5 +63,23 @@
     <servlet-mapping>
         <servlet-name>Request5Servlet</servlet-name>
         <url-pattern>/req5</url-pattern>
+    </servlet-mapping>
+    <!--配置 LifeServlet -->
+    <servlet>
+        <servlet-name>LifeServlet</servlet-name>
+        <servlet-class>LifeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LifeServlet</servlet-name>
+        <url-pattern>/life</url-pattern>
+    </servlet-mapping>
+    <!--配置 ThreadServlet -->
+    <servlet>
+        <servlet-name>ThreadServlet</servlet-name>
+        <servlet-class>ThreadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ThreadServlet</servlet-name>
+        <url-pattern>/thread</url-pattern>
     </servlet-mapping>
 </web-app>
