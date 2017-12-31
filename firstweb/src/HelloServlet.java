@@ -1,3 +1,4 @@
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,5 +13,9 @@ public class HelloServlet extends HttpServlet{
 
         // 向浏览器输入内容
         resp.getWriter().write("Hello aqie \n"+ new Date());
+
+        ServletContext context = this.getServletContext();
+        String name = (String)context.getAttribute("name");
+        System.out.println(name);
     }
 }

@@ -3,6 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+    <!--全局参数配置-->
+    <context-param>
+        <param-name>AAA</param-name>
+        <param-value>AAA'Value</param-value>
+    </context-param>
+    <context-param>
+        <param-name>BBB</param-name>
+        <param-value>BBB'Value</param-value>
+    </context-param>
+
     <!--配置信息servlet1 -->
     <servlet>
         <!-- servlet名称 自定义 -->
@@ -81,5 +91,28 @@
     <servlet-mapping>
         <servlet-name>ThreadServlet</servlet-name>
         <url-pattern>/thread</url-pattern>
+    </servlet-mapping>
+    <!--配置 ConfigServlet -->
+    <servlet>
+        <servlet-name>ConfigServlet</servlet-name>
+        <servlet-class>ConfigServlet</servlet-class>
+        <!--servlet初始化参数-->
+        <init-param>
+            <param-name>path</param-name>
+            <param-value>D:/coreJava/myServlet/firstweb/web/test.html</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConfigServlet</servlet-name>
+        <url-pattern>/config</url-pattern>
+    </servlet-mapping>
+    <!--配置 ContextServlet -->
+    <servlet>
+        <servlet-name>ContextServlet</servlet-name>
+        <servlet-class>context.ContextServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ContextServlet</servlet-name>
+        <url-pattern>/context</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -59,7 +59,56 @@
         5.GenericServlet 通用的不基于任何协议的Servlet实现
         6.HttpServlet 基于Http协议
     3.Servlet的init方法
-        1.init(ServletConfig)
-        2.inti()
-三：servlet config 对象
-四：servlet context对象
+        1.init(ServletConfig):Servlet生命周期方法,一定会被tomcat调用
+        2.inti()提供给开发者方便覆盖，编写初始化逻辑
+三：ServletConfig 对象 : servlet 配置对象 ConfigServlet
+    1.主要把servlet初始化参数封装到对象中
+    2.config.getInitParameter("path")       根据名称获取参数值
+    3.config.getInitParameterNames()        获取所有参数值
+    4.一个网站可能有多个servlet对象,一个servlet封装
+    5.调用init方法前创建。ServletContext对象创建前
+四：ServletContext对象 : servlet上下文对象  ContextServlet
+    1.整个网站只会创建一个
+    2.this.getServletConfig().getServletContext()
+    3.启动时创建
+    4.作用：
+        1.获取web上下文路径 java.lang.String getContextPath()
+            就是项目在tomcat服务器运行的路径,不是项目开发路径
+            获取文件路径更灵活
+        2.获取全局参数 
+            java.lang.String getInitParameter
+            java.util.Enumeration getInitParameterNames()
+        3. 和域对象相关(不同资源之间用来共享数据,保存数据获取数据)
+            void setAttribute
+            java.lang.Object getAttribute
+            void removeAttribute
+        4.请求转发
+            RequestDispatcher getRequestDispatcher
+        5.读取web项目资源文件
+            java.lang.String getRealPath(java.lang.String path)
+            获取资源文件的真实路径
+            java.io.InputStream getResourceAsStream(java.lang.String path)
+            java.net.URL getResource(java.lang.String path)
+    5.配置在web.xml 在servlet外面
+        1.tomcat会把web.xml(包括全局参数)封装到ServletContext对象中
+        2.该网站下任何servlet均可通过ServletContext获取到全局变量
+        3.servlet间共享数据
+            1. response.sendRedirect("/servlet2?name=aqie")
+            2.
+五：ServletRequest ServletResponse 对象
+六：域对象
+    1.servletContext 就是第一个域对象
+    2.HttpServletRequest
+    3.HttpSession
+七：
+    请求转发：
+        1.地址栏不变
+        2.转发只能转发当前项目资源
+        3.浏览器只发出一次请求，能使用请求作用域对象来共享数据
+        4.
+    重定向
+        1.可跳转其他项目资源
+        2.浏览器发出两次请求，不能使用请求作用域对象来共享数据
+八：路径
+    1. 服务器 / 代表当前项目的跟目标
+    2. 浏览器 / 代表当前站点的根目录
