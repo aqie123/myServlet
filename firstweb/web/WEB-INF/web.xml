@@ -115,4 +115,13 @@
         <servlet-name>ContextServlet</servlet-name>
         <url-pattern>/context</url-pattern>
     </servlet-mapping>
+    <!--配置 GetDataServlet -->
+    <servlet>
+        <servlet-name>GetDataServlet</servlet-name>
+        <servlet-class>session.GetDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetDataServlet</servlet-name>
+        <url-pattern>/session</url-pattern>
+    </servlet-mapping>
 </web-app>
