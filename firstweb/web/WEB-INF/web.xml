@@ -122,6 +122,60 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>GetDataServlet</servlet-name>
+        <url-pattern>/getData</url-pattern>
+    </servlet-mapping>
+    <!--配置 LastAccessTimeServlet -->
+    <servlet>
+        <servlet-name>LastAccessTimeServlet</servlet-name>
+        <servlet-class>cookie.LastAccessTimeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LastAccessTimeServlet</servlet-name>
+        <url-pattern>/cookie</url-pattern>
+    </servlet-mapping>
+    <!--配置 ProductServlet -->
+    <servlet>
+        <servlet-name>ProductServlet</servlet-name>
+        <servlet-class>cookie.ProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductServlet</servlet-name>
+        <url-pattern>/product</url-pattern>
+    </servlet-mapping>
+    <!--配置 SessionServlet -->
+    <servlet>
+        <servlet-name>SessionServlet</servlet-name>
+        <servlet-class>session.SessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionServlet</servlet-name>
         <url-pattern>/session</url-pattern>
+    </servlet-mapping>
+    <!--配置 Session2Servlet -->
+    <servlet>
+        <servlet-name>Session2Servlet</servlet-name>
+        <servlet-class>session.Session2Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Session2Servlet</servlet-name>
+        <url-pattern>/session2</url-pattern>
+    </servlet-mapping>
+    <!--配置 LoginServlet -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>login.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <!--配置 UserIndexServlet -->
+    <servlet>
+        <servlet-name>UserIndexServlet</servlet-name>
+        <servlet-class>login.UserIndexServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserIndexServlet</servlet-name>
+        <url-pattern>/userInfo</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -31,8 +31,6 @@ public class Request4Servlet extends HttpServlet {
             String str = new String(buff,0,length);
             System.out.println(str);
         }
-
-
     }
 
     @Override

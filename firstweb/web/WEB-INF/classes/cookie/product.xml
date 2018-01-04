@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product-list>
+    <product id="1">
+        <name>OPPO</name>
+        <type>R11s</type>
+        <price>3299</price>
+    </product>
+    <product id="2">
+        <name>华为</name>
+        <type>v10</type>
+        <price>3099</price>
+    </product>
+    <product id="3">
+        <name>vivo</name>
+        <type>x20</type>
+        <price>3498</price>
+    </product>
+    <product id="4">
+        <name>美图</name>
+        <type>T8</type>
+        <price>3199</price>
+    </product>
+    <product id="5">
+        <name>三星(SAMSUNG)</name>
+        <type>Galaxy S7</type>
+        <price>3066</price>
+    </product>
+    <product id="6">
+        <name>小米</name>
+        <type>小米6 </type>
+        <price>3558</price>
+    </product>
+</product-list>
