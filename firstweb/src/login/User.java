@@ -4,6 +4,18 @@ public class User {
     private String id;
     private String name;
     private String password;
+    public User(){
+
+    }
+    public User(String name){
+        super();
+        this.name = name;
+    }
+    public User(String id,String name){
+        super();
+        this.id = id;
+        this.name = name;
+    }
 
     public void setId(String id) {
         this.id = id;
