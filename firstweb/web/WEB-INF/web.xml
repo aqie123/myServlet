@@ -8,10 +8,10 @@
         <error-code>404</error-code>
         <location>/404.html</location>
     </error-page>
-    <error-page>
+    <!--<error-page>
         <error-code>500</error-code>
         <location>/error.jsp</location>
-    </error-page>
+    </error-page>-->
     <!--全局参数配置-->
     <context-param>
         <param-name>AAA</param-name>
@@ -195,5 +195,14 @@
     <servlet-mapping>
         <servlet-name>ListUserServlet</servlet-name>
         <url-pattern>/listUser</url-pattern>
+    </servlet-mapping>
+    <!--配置 GuessNumber -->
+    <servlet>
+        <servlet-name>GuessNumber</servlet-name>
+        <servlet-class>games.GuessNumber</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GuessNumber</servlet-name>
+        <url-pattern>/games/guessNumber</url-pattern>
     </servlet-mapping>
 </web-app>

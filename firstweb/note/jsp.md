@@ -97,4 +97,60 @@
         session域：在同一个会话中数据有效
         application域:在同一个网站数据有效
      4.自动搜索四个域数据
-        pageContext.findAttribute("name");
+        pageContext.findAttribute("name")
+ 九：EL表达式(代替jsp表达式,jsp页面尽量少些或者不写java代码) EL
+    1.作用：
+        浏览器输出变量或表达式技术的结果
+    2.EL表达式： 
+        a.EL从四个域中自动搜索
+            ${name} 等价于 <%=pageContext.findAttribute("name")%>
+        b.EL从指定域中获取            
+    3.EL获取不同类型数据
+        1.普通字符串
+        2.普通的对象
+            EL表达式对象属性 调用对象的getName方法
+        3.数组或List集合
+        4.Map集合
+    4.执行表达式
+        1.算数表达式 +-*/
+        2.比较表达式 > < == 
+        3.逻辑表达式 && || !
+        4.三目表达式
+        5.判空表达式 null
+            empty(null '')
+ 十：EL  11个内置对象
+    1.pageContext
+    2.pageScope
+    3.requestScope
+    4.sessionScope
+    5.applicationScope
+    6.param
+    7.paramValues
+    8.header
+    9.headerValues
+    10.cookie
+    11.initParam
+十一：内置对象作用
+    1.获取上下文路径
+    2.获取参数
+    3.获取请求头 header
+十二：jsp标签  tags
+    1.EL表达式可以替换jsp表达式，但是不能条件判断,不能赋值,不能迭代
+    2.分类
+        1.jsp内置标签(动作标签) 不需要导入标签库
+            <jsp:forward/> 转发标签
+            <%request.getRequestDispatcher("/mytags/action.html").forward(request,response);%>
+            <jsp:param/>   参数标签
+            <jsp:include/>  包含标签  (动态包含)
+            原理：包含与被包含页面单独翻译成不同java页面,运行时合并在一起
+            区别：静态包含不能携带参数,动态包含可以
+        2.jstl标签(java standard tag library 标准标签) 导入标签库  
+            1.分类(http://tomcat.apache.org/taglibs/standard/)
+                1.核心标签库(重要core)
+                2.国际化标签库(fmt)
+                3.EL函数库(fn)
+                4.SQL标签库(sql)
+                5.XML标签库(x)
+            2.导入
+                1.使用jsp页面,在jsp顶部用taglib指令导入需要标签库
+        3.自定义标签 导入标签库
