@@ -22,5 +22,11 @@
     --%>
     <aqie:showIp></aqie:showIp>
 
+    <aqie:parent>
+        <aqie:sayHello>标签体内容</aqie:sayHello>
+        标签后面内容
+    </aqie:parent>
+
+
 </body>
 </html>

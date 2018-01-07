@@ -225,12 +225,12 @@
         7.取出tag标签内容 <tag-class>a_tag.ShowIpTag</tag-class>
     5.自定义标签的生命周期
         1. 构造方法：构造标签对象
-        2. setJspContext(JspContext pc)
+        2. setJspContext(JspContext pc)  传入pageContext对象
         3. void setParent(jspTag parent) 传入父标签,如果
             没有父标签，则不调用此方法
         4. void setJspBody(JspFragment jspBody)
-            传入标签体内容,没有则不调用此方法
+            传入标签体内容对象,标签体内容封装到JspFragment 中,没有则不调用此方法
         5. void doTag()  调用标签执行方法,业务逻辑
             getJspContext() getParent() getJspBody()
-        6.
+
         

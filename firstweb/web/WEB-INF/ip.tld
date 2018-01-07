@@ -26,8 +26,7 @@
     <!--定义一个标签-->
     <tag>
         <description>
-            Catches any Throwable that occurs in its body and optionally
-            exposes it.
+            display Current Client Ip
         </description>
         <!--标签名称-->
         <name>showIp</name>
@@ -35,5 +34,83 @@
         <tag-class>a_tag.ShowIpTag</tag-class>
         <!--标签体输出格式-->
         <body-content>scriptless</body-content>
+    </tag>
+    <!--hello 标签-->
+    <tag>
+        <name>sayHello</name>
+        <tag-class>a_tag.HelloTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    <tag>
+        <name>parent</name>
+        <tag-class>a_tag.ParentTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    <tag>
+        <name>bird</name>
+        <tag-class>a_tag.BirdTag</tag-class>
+        <body-content>scriptless</body-content>
+        <!--配置属性-->
+        <attribute>
+            <!--属性名称-->
+            <name>num</name>
+            <!--属性必须是true,非必须false-->
+            <required>true</required>
+            <!--该属性是否可以写EL表达式(默认false) true可以 false不可以-->
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <!--if标签-->
+    <tag>
+        <name>if</name>
+        <tag-class>a_tag.IfTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>test</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <!--choose标签-->
+    <tag>
+        <name>choose</name>
+        <tag-class>a_tag.ChooseTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>test</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <!--when标签-->
+    <tag>
+        <name>when</name>
+        <tag-class>a_tag.WhenTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>test</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <!--otherwise标签-->
+    <tag>
+        <name>otherwise</name>
+        <tag-class>a_tag.OtherwiseTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    <!--foreach标签-->
+    <tag>
+        <name>foreach</name>
+        <tag-class>a_tag.ForeachTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>items</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
     </tag>
 </taglib>
