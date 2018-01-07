@@ -153,4 +153,84 @@
                 5.XML标签库(x)
             2.导入
                 1.使用jsp页面,在jsp顶部用taglib指令导入需要标签库
+                2.uri:需要导入标签库的uri名称,每个标签库都会有个tdl后缀名的标签声明文件,
+                      tld文件中有唯一的uri名称,uri名称就是当前标签库名称
+                  prefix:使用标签库的前缀,通用和tld文件的short-name名称相同
+                3.D:\coreJava\myServlet\firstweb\web\WEB-INF\lib 导入标准标签库
         3.自定义标签 导入标签库
+    3.核心标签库 （jstl/core/index.jsp）
+        1.
+        保存数据：var 数据名称   value:保存的值 
+                scope保存到哪个域
+                page:page域
+                request:request域
+                session：session域
+                application:application域              
+        <c:set></c:set>
+        2.
+        获取数据:获取域中值，如果数据在域中，必须使用EL语法去
+        default:当前需要获取内容为null,使用
+        escapeXml 默认情况为true,out标签会把输入的内容转义
+        <c:out value=""></c:out>
+        3.
+        单条件判断: test返回true就会执行标签体内容       
+        <c:if test=""></c:if>
+        4.
+        多条件判断:
+        <c:choose></c:choose>
+        <c:when test=""></c:when>
+        <c:otherwise></c:otherwise>
+        5.
+        用于迭代(循环):
+        begin:从哪个元素开始遍历，0开始
+        end:从哪个元素截止 
+        step:增加的步长
+        Items:默认遍历数据(数组|List集合|Map集合)获取域数据,使用EL表达式
+        var:每个元素名称
+        varStatus:当前状态对象,该对象封装当前元素状态信息,例如count属性,当前遍历是哪个元素
+        遍历map对象时,每个Map对象使用Entry封装,
+        getKey获取键对象, getValue获取到值对象
+        <c:forEach></c:forEach>   
+        6. 遍历特殊字符串    
+        items:需要遍历的字符串
+        delims:指定的分隔符号
+        var:每个内容名称
+        <c:forTokens items="" delims=""></c:forTokens>
+        7.
+        重定向
+        <c:redirect url=""></c:redirect>
+十三：自定义标签 customTag
+    1.导入自定义标签 a_tag.ShowIpTag
+        WEB-INF下新建ip.tld
+    2.应用：获取客户端IP地址
+    3.流程：
+        1. ShowIpTag extends SimpleTagSupport，覆盖doTag方法
+        2. 通过PageContext获取到其他八个内置对象
+        3. 将ip输入给浏览器
+        4. 在WEB-INF目录下建立一个tld文件 ip.tld
+            配置标签前缀 和 标签库唯一名称
+            定义标签名称和ShowIpTag 类名
+        5.jsp顶部导入自定义标签库
+            <%@taglib prefix="aqie" uri="http://www.aqie.com" %>
+        6.使用标签
+            <aqie:showIp></aqie:showIp>
+    4.自定义标签执行过程
+        1.http://192.168.0.135:8080/customTag/ip.jsp
+        2.读取项目下的WEB-INF文件,包括web.xml和tld文件
+        3.翻译java文件->class文件->构造方法->调用_jspService方法
+        4.在内存tld文件中查找是否存在uri名为http://www.aqie.com 的tld文件
+        5.得到对应tld文件
+        6.读取<aqie:showIp>内容,截取showIp名称(标签)，到tld文件查找是否存在
+            name为showIp的tag标签
+        7.取出tag标签内容 <tag-class>a_tag.ShowIpTag</tag-class>
+    5.自定义标签的生命周期
+        1. 构造方法：构造标签对象
+        2. setJspContext(JspContext pc)
+        3. void setParent(jspTag parent) 传入父标签,如果
+            没有父标签，则不调用此方法
+        4. void setJspBody(JspFragment jspBody)
+            传入标签体内容,没有则不调用此方法
+        5. void doTag()  调用标签执行方法,业务逻辑
+            getJspContext() getParent() getJspBody()
+        6.
+        

@@ -5,3 +5,5 @@
     3.pip install Pillow
     4.切换到源码的下载目录，再执行命令pip install -r requirements.txt
     5.源码目录下，执行命令python wechat_jump_auto.py。
+ 二：iPhone
+    1.http://www.jb51.net/article/132114.htm?_=1515124664

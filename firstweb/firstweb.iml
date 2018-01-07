@@ -41,6 +41,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="jsp-api" level="application" />
+    <orderEntry type="library" exported="" name="jsp-api" level="application" />
   </component>
 </module>
