@@ -35,7 +35,9 @@
         2.获取连接对象
         3.准备SQL语句(DDL+)
         4.创建Statement对象
-        5.执行SQL语句 (DDL+DML : executeUpdate(sql))
+        5.执行SQL语句 (DDL+DML : )
+            executeUpdate(sql) ：执行更新
+            executeQuery(sql) : 执行查询
         6.返回结果,处理结果
         7.关闭资源
     5. ResultSet 对象
@@ -60,5 +62,23 @@
       boolean re1= Object.class.isAssignableFrom(IsAssignableFromTest.class);  
       //测试是否实现了接口  
       boolean re2=Serializable.class.isAssignableFrom(IsAssignableFromTest.class);  
-    2.
-            
+    2. jdbc 读取配置文件路径
+        1. D:\coreJava\myServlet\firstweb\src\mysql\JdbcUtil.java
+四：JDBC 批处理
+    1.前提：jdbc 每次向服务器执行多次插入
+    2.API
+        1.Statement批处理
+            1. void add Batch()  sql添加到缓存区(未发送)
+            2. int[] executeBatch() 执行批处理缓存中SQL语句(数据库执行)
+            3. void clearBatch() 清空缓存区SQL语句
+        2.PreparedStatement
+        3.mysql 不支持prepareStatement优化,也不支持批处理优化
+        Innodb(88463) MYISAM(97846)
+五:jdbc 处理大容量数据  JdbcText.java
+    1. 存储字符内容：char varchar(65535)
+    2. 大容量
+        字符字段 text longtext(4G字符)
+        字节字段 blob(65kb) mediumblob(16mb) longblog(4GB)
+六：jdbc的clob和blob
+七：获取自增长值
+八：数据库事务

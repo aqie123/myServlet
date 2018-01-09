@@ -1,20 +1,23 @@
 package mysql;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javax.sql.rowset.JdbcRowSet;
+import java.sql.*;
 
 // 使用Statement接口执行DDL语句(create drop alter)
 public class Statements {
     public static void main(String[] args) {
         Test test = new Test();
-        String sql = "insert into auth_admin(admin_id,admin_name,password) values(null,'aqie','123')";
+        String sql = "insert into auth_admin(admin_name,password) values('aqie','123')";
         /*sql = "update auth_admin set admin_name='啊切',password='456' where admin_id=2";
         sql = "delete from auth_admin where admin_id = 1";*/
         // test.method(sql);
-        sql = "select * from auth_admin";
-        test.method2(sql);
+        // sql = "select * from auth_admin";
+        // test.method2(sql);
+        // test.testStatement(sql);
+        long start = System.currentTimeMillis();
+        test.testBatchStatement(sql);
+        long end = System.currentTimeMillis();
+        System.out.println("耗时为： "+(end-start));
     }
 }
 
@@ -58,5 +61,72 @@ class Test{
             Demo.close(rs,statement,connection);
         }
 
+    }
+
+    public void testStatement(String sql){
+        Connection connection = null;
+        Statement statement = null;
+        try{
+            connection = JdbcUtil.getConnection();
+            statement = connection.createStatement();
+            for(int i = 0;i<2000;i++){
+                statement.executeUpdate(sql);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JdbcUtil.close(statement,connection);
+        }
+    }
+
+    public void testBatchStatement(String sql){
+        Connection connection = null;
+        Statement statement = null;
+        try{
+            connection = JdbcUtil.getConnection();
+            statement = connection.createStatement();
+            for(int i = 0;i<2000;i++){
+                // sql 加入缓存区
+                statement.addBatch(sql);
+                // 每20条发送SQL
+                if(i%20 == 0){
+                    // 执行SQL语句
+                    statement.executeBatch();
+                    // 清空缓冲区
+                    statement.clearBatch();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JdbcUtil.close(statement,connection);
+        }
+    }
+
+    public void testBatchPreparedStatement(String sql){
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try{
+            connection = JdbcUtil.getConnection();
+            statement = connection.prepareStatement(sql);
+            for(int i = 0;i<=2000;i++){
+                // 参数赋值
+                statement.setString(1,"aqie");
+                statement.setString(2,"123");
+                // sql 加入缓存区
+                statement.addBatch();
+                // 每20条发送SQL
+                if(i%20 == 0){
+                    // 执行SQL语句
+                    statement.executeBatch();
+                    // 清空缓冲区
+                    statement.clearBatch();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JdbcUtil.close(statement,connection);
+        }
     }
 }

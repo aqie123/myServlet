@@ -1,9 +1,7 @@
 package mysql;
 
 import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
 
 public class JdbcUtil {
@@ -66,5 +64,53 @@ public class JdbcUtil {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
+    }
+
+    // 释放资源
+    public static void close(ResultSet rs , Statement stmt, Connection conn){
+        if(rs != null){
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if(stmt != null){
+            try{
+                stmt.close();
+            }catch (SQLException e){
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+        }
+        if(conn != null){
+            try{
+                conn.close();
+            }catch(SQLException e){
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public static void close(Statement stmt, Connection conn) {
+        if (stmt != null) {
+            try {
+                stmt.close();
+            } catch (SQLException var4) {
+                var4.printStackTrace();
+                throw new RuntimeException(var4);
+            }
+        }
+
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException var3) {
+                var3.printStackTrace();
+                throw new RuntimeException(var3);
+            }
+        }
+
     }
 }
