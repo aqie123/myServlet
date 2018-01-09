@@ -205,4 +205,13 @@
         <servlet-name>GuessNumber</servlet-name>
         <url-pattern>/games/guessNumber</url-pattern>
     </servlet-mapping>
+    <!--配置 TestJDBC -->
+    <servlet>
+        <servlet-name>TestJDBC</servlet-name>
+        <servlet-class>mysql.TestJDBC</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TestJDBC</servlet-name>
+        <url-pattern>/testJdbc</url-pattern>
+    </servlet-mapping>
 </web-app>
