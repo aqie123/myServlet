@@ -214,4 +214,58 @@
         <servlet-name>TestJDBC</servlet-name>
         <url-pattern>/testJdbc</url-pattern>
     </servlet-mapping>
+    <!--AddServlet -->
+    <servlet>
+        <servlet-name>AddServlet</servlet-name>
+        <servlet-class>web.AddServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddServlet</servlet-name>
+        <url-pattern>/contact/add</url-pattern>
+    </servlet-mapping>
+    <!--BatchDelServlet -->
+    <servlet>
+        <servlet-name>BatchDelServlet</servlet-name>
+        <servlet-class>web.BatchDelServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BatchDelServlet</servlet-name>
+        <url-pattern>/contact/batchDel</url-pattern>
+    </servlet-mapping>
+    <!--DelServlet -->
+    <servlet>
+        <servlet-name>DelServlet</servlet-name>
+        <servlet-class>web.DelServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DelServlet</servlet-name>
+        <url-pattern>/contact/del</url-pattern>
+    </servlet-mapping>
+    <!--ListServlet -->
+    <servlet>
+        <servlet-name>ListServlet</servlet-name>
+        <servlet-class>web.ListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListServlet</servlet-name>
+        <url-pattern>/contact/list</url-pattern>
+    </servlet-mapping>
+    <!--QueryServlet -->
+    <servlet>
+        <servlet-name>QueryServlet</servlet-name>
+        <servlet-class>web.QueryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QueryServlet</servlet-name>
+        <url-pattern>/contact/query</url-pattern>
+    </servlet-mapping>
+    <!--UpdateServlet -->
+    <servlet>
+        <servlet-name>UpdateServlet</servlet-name>
+        <servlet-class>web.UpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateServlet</servlet-name>
+        <url-pattern>/contact/update</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -64,6 +64,9 @@
       boolean re2=Serializable.class.isAssignableFrom(IsAssignableFromTest.class);  
     2. jdbc 读取配置文件路径
         1. D:\coreJava\myServlet\firstweb\src\mysql\JdbcUtil.java
+    3. 读取本地字节文件
+        1.发送数据内容超过字段长度限制,则抛出 Data too long ，修改字段类型
+        2.发送数据超过1MB（修改my.ini max_allowed_packet=50N）
 四：JDBC 批处理
     1.前提：jdbc 每次向服务器执行多次插入
     2.API
@@ -79,6 +82,52 @@
     2. 大容量
         字符字段 text longtext(4G字符)
         字节字段 blob(65kb) mediumblob(16mb) longblog(4GB)
-六：jdbc的clob和blob
-七：获取自增长值
-八：数据库事务
+    3. 写入
+    4. 读取
+        1.text 字段可以当字符串读取
+        2.text 当输入流读取
+六：jdbc的clob和blob        JdbcText.java
+    1. 完成文件的数据库写入读取 clob
+    2. 完成图片的数据库写入读取 blob
+七：获取自增长值   AutoIncrement.java
+    1. RETURN_GENERATED_KEYS : 可以返回自增张生成值
+    2. NO_GENERATED_KEYS    : 不返回
+八：数据库事务 Transaction.java
+    1.set autocommit = 1/0 
+        0:关闭自动提交,开始事务
+        1：自动提交,执行完均会提交(不可回滚)
+         commit rollback
+    2.事务四个特性
+        1. 原子性（Atomicity）
+        2. 一致性（Consistency）
+        3. 隔离性（Isolation）
+        4. 持久性（Durability）
+    3. 事务事项
+        1. 脏读
+        2. 不可重复读
+        3. 虚读(幻读)
+    4. 四种隔离级别
+        ① Serializable (串行化)：可避免脏读、不可重复读、幻读的发生。
+    　　② Repeatable read (可重复读)：可避免脏读、不可重复读的发生。    
+    　　③ Read committed (读已提交)：可避免脏读的发生。    
+    　　④ Read uncommitted (读未提交)：最低级别，任何情况都无法保证。
+    5. jdbc 
+        1.connection.setAutoCommit(false);
+        2.connection.commit();
+        3.connection.rollback();
+九：应用 通讯录
+    1.开发顺序
+        1. 设计数据库(联系人表)
+        2. 编写dao接口实现类,jdbc操作联系人列表
+        3. service层切换到实现类即可
+        4.
+    2.项目文件
+        1.实体类： entity.Contact
+        2.service：service.InterfaceService  service.ContactService  控制器
+        3.Dao类：dao.ContactDao implements InterfaceDao              模型层      
+        4.配置文件：configs/jdbc.properties
+        5.web(Servlet):                                              视图层 Servlet
+        6.异常exception: Exception.NameExistException
+        7. view(jsp) ：view                                          视图层
+    3.访问路径 实体类->Dao->Service->web(Servlet)->view(Jsp)
+        1. http://localhost:8080/contact/list  不能直接访问jsp(带不过数据来)

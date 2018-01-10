@@ -24,7 +24,6 @@ public class Statements {
 class Test{
     public void method(String sql){
         Connection connection = Demo.finalConnection();
-        // 准备sql
         Statement statement = null;
         int count = 0;
         try{
