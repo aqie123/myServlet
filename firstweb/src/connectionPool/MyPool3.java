@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 
 // 自行设计连接池
-public class MyPool {
+public class MyPool3 {
     private static String url = "jdbc:mysql://localhost:3306/test";
     private static String user = "root";
     private static String password = "root";
@@ -28,7 +28,7 @@ public class MyPool {
             e.printStackTrace();
         }
     }
-    public MyPool(){
+    public MyPool3(){
         // 获取连接,初始化连接对象
         for(int i = 1;i<=initCount;i++){
             pool.addLast(createConnection());

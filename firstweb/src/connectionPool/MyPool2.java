@@ -6,14 +6,19 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 
 // 自行设计连接池
-public class MyPool {
-    private static String url = "jdbc:mysql://localhost:3306/test";
-    private static String user = "root";
-    private static String password = "root";
-    private static String driverClass= "com.mysql.jdbc.Driver";
+public class MyPool2 {
 
     // 存储连接对象的容器
     private static LinkedList<Connection> pool = new LinkedList();
+
+    public static LinkedList<Connection> getPool() {
+        return pool;
+    }
+
+    public static void setPool(LinkedList<Connection> pool) {
+        MyPool2.pool = pool;
+    }
+
     // 连接池的初始化连接数
     private int initCount = 5;
     // 连接池最大连接数
@@ -23,12 +28,13 @@ public class MyPool {
     static {
         // 注册驱动
         try {
+            String driverClass = "com.mysql.jdbc.Driver";
             Class.forName(driverClass);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
-    public MyPool(){
+    public MyPool2(){
         // 获取连接,初始化连接对象
         for(int i = 1;i<=initCount;i++){
             pool.addLast(createConnection());
@@ -39,8 +45,14 @@ public class MyPool {
     private Connection createConnection(){
         Connection connection;
         try {
-            connection = DriverManager.getConnection(url,user,password);
-            return connection;
+            // 原来真实连接对象
+            String url = "jdbc:mysql://localhost:3306/test";
+            String user = "root";
+            String password = "root";
+            connection = DriverManager.getConnection(url, user, password);
+            // 创建connection代理类
+            MyConnection myConnection = new MyConnection(connection);
+            return myConnection;
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException(e);

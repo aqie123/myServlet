@@ -131,7 +131,7 @@
         7. view(jsp) ：view                                          视图层
     3.访问路径 实体类->Dao->Service->web(Servlet)->view(Jsp)
         1. http://localhost:8080/contact/list  不能直接访问jsp(带不过数据来)
-十：连接池(connectionPool)
+十：连接池(connectionPool) 
     1.连接池要素
         1.初始化连接数
         2.最大连接数
@@ -139,5 +139,12 @@
         1.Connection 连接对象利用率低
         2.控制java程序连接数据库的并发连接次数(最大连接数)
         3.
-    3.
+    3. 自定义连接池工具 MyPool.java
+    4. 使用代理模式重写Connection close 方法   
+        1.MyPool2.java
+        2.新建Connection静态代理类 
+            Connection 接口实现类 MyConnection.java 
+        3. 动态代理类 MyConnection2.java  MyPool3.java
+    5.
+    6.
     
