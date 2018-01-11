@@ -145,6 +145,26 @@
         2.新建Connection静态代理类 
             Connection 接口实现类 MyConnection.java 
         3. 动态代理类 MyConnection2.java  MyPool3.java
-    5.
-    6.
+    5.dbcp(DataBase Connection Pool) 连接池工具
+        1.导入包 commons-pool-1.5.6.jar  commons-dbcp-1.4.jar
+        2.BasicDataSource  连接池对象
+    6.c3p0 连接池工具(框架hibernate内置连接池)
+        1.c3p0-0.9.1.2.jar
+    7._beanutils 工具
+        1. 方便开发者操作javabean对象
+        2.作用：
+            1. 拷贝一个javabean对象属性
+            2. 拷贝整个javabean对象(所有属性)
+            3. 从一个map集合中拷贝到javabean对象中
+        3.导入包
+            commons-beanutils-1.8.3.jar
+            commons-logging-1.1.3.jar
+        4.注意
+            1.拷贝的方法能自动将非String类型转换为对应类型的属性
+            2.默认不支持字符串转date,手动注册一个日期转换器
+            3.只拷贝javabean存在的属性(SetXXX)
+            4.需要拷贝的数据时数组类型,只拷贝数组第一个
+        6.应用 (http://localhost:8080//contact/list)
+            1.优化 AddServlet
+    8._dbutils工具
     

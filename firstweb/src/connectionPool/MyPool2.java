@@ -50,7 +50,7 @@ public class MyPool2 {
             String user = "root";
             String password = "root";
             connection = DriverManager.getConnection(url, user, password);
-            // 创建connection代理类
+            // 创建connection静态代理类
             MyConnection myConnection = new MyConnection(connection);
             return myConnection;
         } catch (SQLException e) {

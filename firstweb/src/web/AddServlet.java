@@ -2,6 +2,8 @@ package web;
 
 import MyException.NameExistException;
 import entity.Contact;
+import libs.WebUtil;
+import org.apache.commons.beanutils.BeanUtils;
 import service.ContactService;
 import service.InterfaceService;
 
@@ -10,12 +12,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
 
 public class AddServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        /*
         // 接收参数
         String name = req.getParameter("name");
         String gender = req.getParameter("gender");
@@ -28,7 +33,14 @@ public class AddServlet extends HttpServlet{
         contact.setGender(gender);
         contact.setEmail(email);
         contact.setPhone(phone);
-        contact.setAddress(address);
+        contact.setAddress(address);*/
+        /**
+         * request 对象参数,逐个封装到Contact对象中
+         */
+
+        // 使传入类型和返回类型一致
+        Contact contact = WebUtil.copyRequestToBean(req,Contact.class);
+
         // 调用service 层
         InterfaceService service = new ContactService();
         try{

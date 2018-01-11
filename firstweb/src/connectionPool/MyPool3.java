@@ -1,5 +1,8 @@
 package connectionPool;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -14,6 +17,13 @@ public class MyPool3 {
 
     // 存储连接对象的容器
     private static LinkedList<Connection> pool = new LinkedList();
+    public static LinkedList<Connection> getPool() {
+        return pool;
+    }
+
+    public static void setPool(LinkedList<Connection> pool) {
+        MyPool3.pool = pool;
+    }
     // 连接池的初始化连接数
     private int initCount = 5;
     // 连接池最大连接数
@@ -37,10 +47,42 @@ public class MyPool3 {
     }
     // 创建连接方法
     private Connection createConnection(){
-        Connection connection;
+        final Connection connection;
         try {
             connection = DriverManager.getConnection(url,user,password);
-            return connection;
+            // 动态代理类方式创建Connection的代理类
+            /** jdk 的api: Proxy 类
+             *  创建动态代理类对象
+             *  static Object newProxyInstance{
+             *      ClassLoader loader;     类加载器
+             *      Class<?>[] interface;   代理要实现的接口列表
+             *      接口 InvocationHandler h;    指派方法调用的调用处理程序(代理完对象后,对其中方法如何处理)
+             *      Object invoke(
+             *          Object proxy,       代理类对象
+             *          Method method,      代理类对象调用的方法
+             *          Object[] args       调用代理类对象方法时传入的参数列表
+             *      )
+             *  }
+             */
+            Connection myConnection = (Connection) Proxy.newProxyInstance(
+                    MyPool3.class.getClassLoader(),
+                    new Class[]{Connection.class},
+                    (proxy, method, args) -> {
+                        // 1)重写需要重写的方法 close()
+                        // 获取当前调用方法的方法名称
+                        String methodName = method.getName();
+                        if("close".equals(methodName)){
+                            MyPool3.getPool().addLast(connection);
+                            return null;
+                        }else{
+                            // 2) 调用原来的方法,获取返回值
+                            Object value = method.invoke(connection,args);
+                            // 返回结果
+                            return value;
+                        }
+                    }
+            );
+            return myConnection;
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException(e);

@@ -8,7 +8,8 @@ public class TestPool {
     public static void main(String[] args) {
         Test7 test7 = new Test7();
         // test7.method();
-        test7.method2();
+        // test7.method2();
+        test7.method3();
     }
 }
 class Test7{
@@ -42,6 +43,27 @@ class Test7{
                 // 1.静态代理类,重写Connection 的close方法
                 try {
                     connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    // 动态代理类
+    void method3(){
+        // 1.构造连接池对象
+        MyPool3 myPool = new MyPool3();
+        // 2,模拟用户并发获取连接
+        for (int i = 1;i<=11;i++){
+            Connection connection = myPool.getConnection();
+            System.out.println(connection);
+
+            // 模拟用户释放连接
+            if(i == 4){
+                // 1.动态代理类,重写Connection 的close方法
+                try {
+                    connection.close(); // 本质是将连接返回连接池,而非真正关闭连接
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

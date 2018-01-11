@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
-// Connection 代理类
+// Connection 静态代理类
 public class MyConnection implements Connection {
     private Connection connection;
 
