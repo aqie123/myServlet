@@ -21,7 +21,16 @@
         <param-name>BBB</param-name>
         <param-value>BBB'Value</param-value>
     </context-param>
-
+    <!--配置一个过滤器-->
+    <filter>
+        <filter-name>FirstFilter</filter-name>
+        <filter-class>MyFilter.FirstFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FirstFilter</filter-name>
+        <!--代表要过滤的路径-->
+        <url-pattern>/target</url-pattern>
+    </filter-mapping>
     <!--配置信息servlet1 -->
     <servlet>
         <!-- servlet名称 自定义 -->
@@ -267,5 +276,14 @@
     <servlet-mapping>
         <servlet-name>UpdateServlet</servlet-name>
         <url-pattern>/contact/update</url-pattern>
+    </servlet-mapping>
+    <!--TargetServlet -->
+    <servlet>
+        <servlet-name>TargetServlet</servlet-name>
+        <servlet-class>MyFilter.TargetServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TargetServlet</servlet-name>
+        <url-pattern>/target</url-pattern>
     </servlet-mapping>
 </web-app>
