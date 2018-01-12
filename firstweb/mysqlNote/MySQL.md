@@ -165,6 +165,35 @@
             3.只拷贝javabean存在的属性(SetXXX)
             4.需要拷贝的数据时数组类型,只拷贝数组第一个
         6.应用 (http://localhost:8080//contact/list)
-            1.优化 AddServlet
-    8._dbutils工具
-    
+            1.优化 AddServlet    
+    8.元数据 : 编写更通用的jdbc
+        1.元数据
+            a.连接数据库
+                知道连接那个数据库,必须使用数据库元数据对象,DatabaseMetaData
+            b.预编译Statement SQL语句
+                insert into table(x,x) values(?,?);
+                知道预编译数据有几个参数,使用ParameterMetaData
+            c.执行查询sql,返回结果集
+                ResultSet 知道表的字段数和字段名称,使用结果集的元数据ResultSetMetaData
+        2.作用：
+            描述代码间关系，或者代码与其他资源（例如数据库表）之间内在联系的数据
+        3.java四种类型（TYPE），即类(class)、枚举(enum)、接口(interface)和注解(@interface)
+        4.① 由Connection对象的getMetaData()方法获取的是DatabaseMetaData对象。
+      　　② 由PreparedStatement对象的getParameterMetaData ()方法获取的是ParameterMetaData对象。      
+      　　③由ResultSet对象的getMetaData()方法获取的是ResultSetMetaData对象。
+    9._dbutils工具 (简单的jdbc代码封装) MyDbutils.java JdbcUtil.java 骉 淼 朰 嘔 庅荤
+        1.update() 更新
+        2.query() 查询
+        3.步骤
+            1.导入包 commons-dbutils-1.4.jar
+        4.dbUtils 中的各种 Handler 什么 意思
+            ResultSetHandler : 将结果集封装成不同对象
+            ArrayHandler：把结果集中的第一行数据转成对象数组。
+            ArrayListHandler：把结果集中的每一行数据都转成一个对象数组，再存放到List中。
+            BeanHandler：将结果集中的第一行数据封装到一个对应的JavaBean实例中。
+            BeanListHandler：将结果集中的每一行数据都封装到一个对应的JavaBean实例中，存放到List里。
+            ColumnListHandler：将结果集中某一列的数据存放到List中。
+            KeyedHandler：将结果集中的每一行数据都封装到一个Map里，然后再根据指定的key把每个Map再存放到一个Map里。
+            MapHandler：将结果集中的第一行数据封装到一个Map里，key是列名，value就是对应的值。
+            MapListHandler：将结果集中的每一行数据都封装到一个Map里，然后再存放到List。
+            ScalarHandler：将结果集中某一条记录的其中某一列的数据存成Object。

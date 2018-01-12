@@ -5,8 +5,8 @@
 五：jsp
 六：mysql
 七：jdbc
-八：过滤器 监听器 文件上传下载
-九：在线支付 Email
+八：分页，条件查询，过滤器 监听器 文件上传下载
+九： Junit工具，泛型，反射，反射泛型，注解和反射注解，类加载器 在线支付 Email
 十：spring
 十一：Lucene solr
 十二：springMVC

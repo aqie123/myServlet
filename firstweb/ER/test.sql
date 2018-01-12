@@ -53,3 +53,13 @@ CREATE TABLE contact(
   `create_time` int(11) unsigned NOT NULL DEFAULT 0 COMMENT '添加时间',
   PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='联系人';
+
+CREATE TABLE student(
+  id int(11) unsigned NOT NULL AUTO_INCREMENT,
+  name varchar(30) NOT NULL DEFAULT '' COMMENT '姓名',
+  gender TINYINT(1) NOT NULL DEFAULT 1 COMMENT '性别',
+  score DECIMAL(10,2) NOT NULL DEFAULT 0.00 COMMENT '分数',
+  birth DATE NOT NULL DEFAULT '1011-00-00' COMMENT '日期',
+  `create_time` int(11) unsigned NOT NULL DEFAULT 0 COMMENT '添加时间',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='学生';
