@@ -4,9 +4,9 @@ import javax.servlet.*;
 import java.io.IOException;
 import java.util.Enumeration;
 
-public class FirstFilter implements Filter{
-    public FirstFilter(){
-        System.out.println("1).create Filter Object!");
+public class SecondFilter implements Filter{
+    public SecondFilter(){
+        System.out.println("1).create Second Filter Object!");
     }
 
     /**
@@ -14,16 +14,7 @@ public class FirstFilter implements Filter{
      */
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("2).Filter init !");
-        System.out.println(filterConfig.getInitParameter("aqie"));
-        // 遍历所有参数
-        Enumeration<String> enumeration = filterConfig.getInitParameterNames();
-        while (enumeration.hasMoreElements()){
-            String paramName = enumeration.nextElement();
-
-            String paramValue = filterConfig.getInitParameter(paramName);
-            System.out.println(paramName+" : "+paramValue);
-        }
+        System.out.println("2).Second Filter init !");
     }
 
 
@@ -34,10 +25,10 @@ public class FirstFilter implements Filter{
      */
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        System.out.println("3).execute Filter task! 过滤请求");
+        System.out.println("3).execute Second Filter task! 过滤请求");
         // 放行
         filterChain.doFilter(servletRequest,servletResponse);
-        System.out.println("5). execute Filter task! 过滤响应 ");
+        System.out.println("5). execute Second Filter task! 过滤响应 ");
     }
 
     // web项目重新部署,tomcat服务器停止才会销毁
