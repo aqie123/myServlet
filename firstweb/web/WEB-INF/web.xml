@@ -416,4 +416,22 @@
         <filter-name>CharacterFilter</filter-name>
         <url-pattern>/multiLanguage/multiLanguage2.jsp</url-pattern>
     </filter-mapping>
+    <!--自定义文件上传 -->
+    <servlet>
+        <servlet-name>FileUploadServlet</servlet-name>
+        <servlet-class>FileUpload.FileUploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileUploadServlet</servlet-name>
+        <url-pattern>/fileupload/self</url-pattern>
+    </servlet-mapping>
+    <!--FileUpload组件 文件上传 -->
+    <servlet>
+        <servlet-name>FileUpload2Servlet</servlet-name>
+        <servlet-class>FileUpload.FileUpload2Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileUpload2Servlet</servlet-name>
+        <url-pattern>/fileupload/single</url-pattern>
+    </servlet-mapping>
 </web-app>
