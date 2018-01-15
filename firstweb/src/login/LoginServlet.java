@@ -12,19 +12,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // xmlLogin(req, resp);  // xml文件验证登录
         sessionCheckLogin(req, resp);
-        //recordSession(req);
-    }
 
-    private void recordSession(HttpServletRequest req) {
-        String name = req.getParameter("name");
-        String password = req.getParameter("password");
-        // 判断登录
-        if("aqie".equals(name) && "123".equals(password)){
-            // 将用户数据保存到session
-            HttpSession session = req.getSession(true);
-            session.setAttribute("name",name);
-            session.setAttribute("password",password);
-        }
     }
 
     private void sessionCheckLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {

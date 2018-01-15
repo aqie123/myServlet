@@ -348,4 +348,72 @@
         <filter-name>SecurityFilter</filter-name>
         <url-pattern>/user/*</url-pattern>
     </filter-mapping>
+    <!--注册监听器-->
+    <!--<listener>
+        <listener-class>listener.MyContextListener</listener-class>
+    </listener>-->
+    <!--<listener>
+        <listener-class>listener.MyRequestListener</listener-class>
+    </listener>-->
+    <!--<listener>
+        <listener-class>listener.MySessionListener</listener-class>
+    </listener>-->
+    <!--在线登录用户 login -->
+    <servlet>
+        <servlet-name>SessionLoginServlet</servlet-name>
+        <servlet-class>sessionLogin.SessionLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionLoginServlet</servlet-name>
+        <url-pattern>/session/login</url-pattern>
+    </servlet-mapping>
+    <!--在线登录用户 logout -->
+    <servlet>
+        <servlet-name>SessionLogoutServlet</servlet-name>
+        <servlet-class>sessionLogin.SessionLogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionLogoutServlet</servlet-name>
+        <url-pattern>/session/logout</url-pattern>
+    </servlet-mapping>
+    <!--在线用户注册监听器-->
+    <listener>
+        <listener-class>sessionLogin.OnLineListener</listener-class>
+    </listener>
+    <!--在线用户信息封装到javabean 然后转发 -->
+    <servlet>
+        <servlet-name>GetOnlineServlet</servlet-name>
+        <servlet-class>sessionLogin.GetOnlineServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetOnlineServlet</servlet-name>
+        <url-pattern>/session/getOnline</url-pattern>
+    </servlet-mapping>
+    <!--在线用户信息封装到javabean 然后转发 -->
+    <servlet>
+        <servlet-name>KickOutServlet</servlet-name>
+        <servlet-class>sessionLogin.KickOutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>KickOutServlet</servlet-name>
+        <url-pattern>/session/kickOut</url-pattern>
+    </servlet-mapping>
+    <!--管理员踢人权限 PermissionFilter-->
+    <filter>
+        <filter-name>PermissionFilter</filter-name>
+        <filter-class>sessionLogin.PermissionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PermissionFilter</filter-name>
+        <url-pattern>/session/kickOut</url-pattern>
+    </filter-mapping>
+    <!--中文乱码过滤器-->
+    <filter>
+        <filter-name>CharacterFilter</filter-name>
+        <filter-class>MultiLanguage.CharacterFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterFilter</filter-name>
+        <url-pattern>/multiLanguage/multiLanguage2.jsp</url-pattern>
+    </filter-mapping>
 </web-app>
