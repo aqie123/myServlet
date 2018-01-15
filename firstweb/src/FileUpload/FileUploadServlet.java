@@ -30,7 +30,8 @@ public class FileUploadServlet extends HttpServlet{
                 continue;
             }
             bw.write(content);
-            bw.newLine();
+            // 写入换行符
+            // bw.newLine();
             bw.flush();
         }
         bw.close();
