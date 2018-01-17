@@ -2,6 +2,7 @@
     1.http://192.168.0.135:8080/fileUpload/upload.jsp
     2.自定义上传 ：http://192.168.0.135:8080/fileupload/self
     3.fileupload 上传:http://192.168.0.135:8080/fileupload/single
+    4,文件列表页 http://192.168.0.135:8080/fileUpload/uploadSuccess.jsp
 二：手动解析上传文件
 三：fileupload 上传文件
     依赖文件：引入commons-fileupload-1.2.1.jar     引入依赖包commons-io-1.4.jar
@@ -21,10 +22,19 @@
         item.getName();获取文件名[文件上传项]
         item.write(file);把数据写到file文件
         item.delete();删除临时文件
-    4.
+    4.DiskFileItemFactory  设置上传文件的缓存大小和缓存目录
+    5.ServletFileUpload    解析上传的所有文件
+        List<FileItem>parserRequest(HttpServletRequest request)
+        FileItem对象 : 代表一个上传文件(文件名称,大小,类型,内容)
+    6.
+    7.
+    8.
+    9.
 四：fileupload组件动态多文件上传
 五：servlet 下载文件
 六：上传下载 数据库
 
 七：web项目 获取文件路径
+    1. 放在web目录下  getServletContext().getRealPath()
+    2.
     

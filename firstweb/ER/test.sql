@@ -63,3 +63,15 @@ CREATE TABLE student(
   `create_time` int(11) unsigned NOT NULL DEFAULT 0 COMMENT '添加时间',
   PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='学生';
+
+create table chart(
+  id int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `topic` VARCHAR(20) NOT NULL DEFAULT '' COMMENT '话题',
+  uid VARCHAR(20) NOT NULL DEFAULT '' COMMENT '用户id',
+  `create_time` int(11) unsigned NOT NULL DEFAULT 0 COMMENT '添加时间',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='话题';
+insert into chart(topic,uid,create_time) VALUE (1,9,1516087020);
+insert into chart(topic,uid,create_time) VALUE (9,1,1516087021);
+insert into chart(topic,uid,create_time) VALUE (3,4,1516087020);
+insert into chart(topic,uid,create_time) VALUE (4,3,1516087021);

@@ -14,8 +14,9 @@
 <%--<form action="${pageContext.request.contextPath}/fileupload/single" method="post" enctype="multipart/form-data">--%>
 <form action="${pageContext.request.contextPath}/fileupload/self" method="post" enctype="multipart/form-data">
 <%--<form action="" method="post" enctype="multipart/form-data">--%>
-    File VIewer <input type="file" name="attachment"> <br>
-    <%--File Name : <input type="text" name="name">--%>
+    File Viewer <input type="file" name="attachment"> <br>
+    File Viewer <input type="file" name="attachment2"> <br>
+    File Name : <input type="text" name="name">
     <button type="submit">Upload</button>
 </form>
 </body>

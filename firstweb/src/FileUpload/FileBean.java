@@ -1,9 +1,13 @@
 package FileUpload;
 
+/**
+ * 用于存储上传文件信息
+ */
 public class FileBean {
     private String name;
     private String size;
     private String type;
+    // 上传时间
     private String addTime;
     public String getName() {
         return name;
