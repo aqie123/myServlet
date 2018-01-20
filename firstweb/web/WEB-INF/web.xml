@@ -425,13 +425,13 @@
         <servlet-name>FileUploadServlet</servlet-name>
         <url-pattern>/fileupload/self</url-pattern>
     </servlet-mapping>
-    <!--FileUpload组件 文件上传 -->
+    <!--自定义文件下载 -->
     <servlet>
-        <servlet-name>FileUpload2Servlet</servlet-name>
-        <servlet-class>FileUpload.FileUpload2Servlet</servlet-class>
+        <servlet-name>DownloadServlet</servlet-name>
+        <servlet-class>fileDownload.DownloadServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>FileUpload2Servlet</servlet-name>
-        <url-pattern>/fileupload/single</url-pattern>
+        <servlet-name>DownloadServlet</servlet-name>
+        <url-pattern>/download</url-pattern>
     </servlet-mapping>
 </web-app>

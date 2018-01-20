@@ -8,7 +8,7 @@
 
 <body>
 <font color="red">${msg }</font>
-<form action="${pageContext.request.contextPath }/fileupload/self" method="post" enctype="multipart/form-data" onsubmit="return checkFiles()">
+<form action="${pageContext.request.contextPath}/fileupload/self" method="post" enctype="multipart/form-data" onsubmit="return checkFiles()">
     <table border="1">
         <tbody>
         <tr>

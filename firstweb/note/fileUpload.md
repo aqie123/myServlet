@@ -1,5 +1,6 @@
-一：文件上传下载
-    1.http://192.168.0.135:8080/fileUpload/upload.jsp
+一：文件上传
+    1.  http://192.168.0.135:8080/fileUpload/upload.jsp
+        http://192.168.0.135:8080/fileUpload/myUpload.jsp
     2.自定义上传 ：http://192.168.0.135:8080/fileupload/self
     3.fileupload 上传:http://192.168.0.135:8080/fileupload/single
     4,文件列表页 http://192.168.0.135:8080/fileUpload/uploadSuccess.jsp
@@ -26,15 +27,28 @@
     5.ServletFileUpload    解析上传的所有文件
         List<FileItem>parserRequest(HttpServletRequest request)
         FileItem对象 : 代表一个上传文件(文件名称,大小,类型,内容)
-    6.
-    7.
-    8.
-    9.
+    6.判断文件大小 ： setFileSizeMax , setSizeMax
+    7.判断文件类型
+    8.修改存储文件名
+    9.文件随机打散到不同目录(8570152a-c96b-4858-91fd-72ac71304e3davatar.jpg)
+        返回fileName.hasCode()
+        算法：使用文件名的hashCode计算每层目录的名称
+        第一层目录：12&0xFF
+        第二层目录：12&(0xFF>1)
+    10.
 四：fileupload组件动态多文件上传
 五：servlet 下载文件
 六：上传下载 数据库
 
 七：web项目 获取文件路径
     1. 放在web目录下  getServletContext().getRealPath()
-    2.
+
+八：文件下载 Servlet  fileDownload
+    1.最简单下载
+        http://192.168.0.135:8080/fileDownload/download.jsp
+    2.http://192.168.0.135:8080/download
+    3. servlet 文件路径(读取服务器文件)相对web目录
+        1.读取当前web应用根目录下文件,返回绝对路径
+            InputStream in = this.getServletContext().getResourceAsStream(fileName);
+        2.
     
