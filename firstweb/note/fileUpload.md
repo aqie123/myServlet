@@ -50,5 +50,21 @@
     3. servlet 文件路径(读取服务器文件)相对web目录
         1.读取当前web应用根目录下文件,返回绝对路径
             InputStream in = this.getServletContext().getResourceAsStream(fileName);
-        2.
+        2.DownloadServlet
+    4. 结合数据库文件上传下载
+        1.思路：
+           文件上传到服务器,
+               1.文件内容保存起来,
+               2.文件相关信息存储到数据库
+               3.数据卡读取文件信息,通过文件路径到服务器下载
+               4.使用servlet下载
+        2.三层结构开发顺序 (src/FileUpload 文件)
+            1.设计数据库
+            2.设计实体 FileBean
+            3.编写DAO  FileBeanDao
+            4.编写service  FileBeanService
+            5.编写servlet+jsp  mysqlUpload.jsp 
+        3.
+            1.http://192.168.0.135:8080/fileUpload/mysqlUpload.jsp
+            2.http://192.168.0.135:8080/mysql/upload
     

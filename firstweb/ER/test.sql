@@ -75,3 +75,15 @@ insert into chart(topic,uid,create_time) VALUE (1,9,1516087020);
 insert into chart(topic,uid,create_time) VALUE (9,1,1516087021);
 insert into chart(topic,uid,create_time) VALUE (3,4,1516087020);
 insert into chart(topic,uid,create_time) VALUE (4,3,1516087021);
+
+DROP TABLE IF EXISTS `file_list`;
+create table file_list(
+  id int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(50)  DEFAULT '' COMMENT '文件名',
+  `size` VARCHAR(50)  DEFAULT '' COMMENT '文件大小',
+  `type` VARCHAR(50)  DEFAULT '' COMMENT '文件类型',
+  `addTime` DATETIME  DEFAULT '0000-00-00 00:00:00' COMMENT '上传时间',
+  `file_path` VARCHAR(50)  DEFAULT '' COMMENT '文件在服务器实际路径',
+  `info` VARCHAR(200)  DEFAULT '' COMMENT '文件描述',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文件信息表';

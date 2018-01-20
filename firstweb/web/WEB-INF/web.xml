@@ -425,6 +425,15 @@
         <servlet-name>FileUploadServlet</servlet-name>
         <url-pattern>/fileupload/self</url-pattern>
     </servlet-mapping>
+    <!--文件上传数据库 -->
+    <servlet>
+        <servlet-name>MysqlUploadServlet</servlet-name>
+        <servlet-class>FileUpload.MysqlUploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MysqlUploadServlet</servlet-name>
+        <url-pattern>/mysql/upload</url-pattern>
+    </servlet-mapping>
     <!--自定义文件下载 -->
     <servlet>
         <servlet-name>DownloadServlet</servlet-name>

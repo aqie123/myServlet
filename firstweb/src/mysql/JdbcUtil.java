@@ -1,5 +1,8 @@
 package mysql;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
+import javax.sql.DataSource;
 import java.io.*;
 import java.sql.*;
 import java.util.Properties;
@@ -56,6 +59,10 @@ public class JdbcUtil {
         }
     }
 
+    /**
+     * 数据库连接通用方法
+     * @return
+     */
     public static Connection getConnection(){
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
@@ -112,5 +119,11 @@ public class JdbcUtil {
             }
         }
 
+    }
+
+    private static DataSource ds = new ComboPooledDataSource();
+    public static DataSource getDataSource(){
+        DataSource ds = new ComboPooledDataSource();
+        return ds;
     }
 }
