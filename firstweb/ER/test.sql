@@ -83,7 +83,7 @@ create table file_list(
   `size` VARCHAR(50)  DEFAULT '' COMMENT '文件大小',
   `type` VARCHAR(50)  DEFAULT '' COMMENT '文件类型',
   `addTime` DATETIME  DEFAULT '0000-00-00 00:00:00' COMMENT '上传时间',
-  `file_path` VARCHAR(50)  DEFAULT '' COMMENT '文件在服务器实际路径',
+  `file_path` VARCHAR(255)  DEFAULT '' COMMENT '文件在服务器实际路径',
   `info` VARCHAR(200)  DEFAULT '' COMMENT '文件描述',
   PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文件信息表';

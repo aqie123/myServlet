@@ -34,7 +34,8 @@ public class MysqlUploadServlet extends HttpServlet {
         // 解析
         try {
             List<FileItem> list = upload.parseRequest(req);
-            FileBeanDao dao = new FileBeanDao();
+            // FileBeanDao dao = new FileBeanDao();
+            FileBeanService service = new FileBeanService();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
             List<FileBean> fileBeanList = new ArrayList<>();
 
@@ -42,13 +43,13 @@ public class MysqlUploadServlet extends HttpServlet {
                 FileBean bean = null;
                 // 遍历每个文件
                 for(FileItem fileItem : list){
-                    bean = new FileBean();
                     if(fileItem.isFormField()){     // 普通文件
                         bean.setInfo(fileItem.getString("utf-8"));
                         fileBeanList.add(bean);
                         // 7.保存到数据库
-                        dao.saveFile(bean);
+                        service.saveFileBean(bean);
                     }else {
+                        bean = new FileBean();
                         // 1. 文件保存到服务器硬盘
                         String uuid = UUID.randomUUID().toString();
                         String fileName = fileItem.getName();
@@ -56,9 +57,15 @@ public class MysqlUploadServlet extends HttpServlet {
                         // 2.后缀 随机文件名，防止重复
                         fileName = uuid + fileName.substring(fileName.lastIndexOf("."));
                         // 3.得到web应用目录中绝对路径(D:\coreJava\myServlet\firstweb\web\staticFile\Uploads)
-                        String baseDir = this.getServletContext().getRealPath("staticFile/Uploads");
+                        String baseDir = this.getServletContext().getRealPath("/staticFile/Uploads");
+                        // String baseDir = "D:/coreJava/myServlet/firstweb/web/staticFile/Uploads";
                         String subDir = makeDirectory(fileName);
                         String finalDir = baseDir + "/" + subDir;
+                        // 目录不存在则创建
+                        File file = new File(finalDir);
+                        if(!file.exists()){
+                            file.mkdirs();
+                        }
                         FileUtils.copyInputStreamToFile(fileItem.getInputStream(), new File(finalDir + fileName));
 
                         // 4.计算文件大小

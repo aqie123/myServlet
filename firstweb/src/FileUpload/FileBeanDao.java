@@ -67,8 +67,11 @@ public class FileBeanDao {
         // bean.setFile_path("D:/coreJava/myServlet/firstweb/web/staticFile/Uploads/1.jpg");
         bean.setFile_path("staticFile/Uploads/1.jpg");
         dao.saveFile(bean);*/
-        FileBean bean = dao.findByID(1);
-        // dao.findAll();
-        System.out.println(bean);
+        // FileBean bean = dao.findByID(1);
+        List<FileBean> list = dao.findAll();
+        for(FileBean bean : list){
+            System.out.println(bean);
+        }
+        // System.out.println(bean);
     }
 }

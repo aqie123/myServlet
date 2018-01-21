@@ -3,7 +3,7 @@ package FileUpload;
 import java.util.List;
 
 public class FileBeanService {
-    FileBeanDao dao  = new FileBeanDao();
+    private FileBeanDao dao  = new FileBeanDao();
     public void saveFileBean(FileBean bean){
         dao.saveFile(bean);
     }

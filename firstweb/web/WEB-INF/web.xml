@@ -443,4 +443,22 @@
         <servlet-name>DownloadServlet</servlet-name>
         <url-pattern>/download</url-pattern>
     </servlet-mapping>
+    <!--mysql 从服务器下载文件 -->
+    <servlet>
+        <servlet-name>MysqlDownloadServlet</servlet-name>
+        <servlet-class>fileDownload.MysqlDownloadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MysqlDownloadServlet</servlet-name>
+        <url-pattern>/mysql/download</url-pattern>
+    </servlet-mapping>
+    <!--所有mysql上传文件列表 -->
+    <servlet>
+        <servlet-name>ListFileServlet</servlet-name>
+        <servlet-class>FileUpload.ListFileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListFileServlet</servlet-name>
+        <url-pattern>/mysql/fileList</url-pattern>
+    </servlet-mapping>
 </web-app>

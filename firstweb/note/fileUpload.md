@@ -48,7 +48,7 @@
         http://192.168.0.135:8080/fileDownload/download.jsp
     2.http://192.168.0.135:8080/download
     3. servlet 文件路径(读取服务器文件)相对web目录
-        1.读取当前web应用根目录下文件,返回绝对路径
+        1.读取当前web应用根目录下文件,返回绝对路径  注意加/
             InputStream in = this.getServletContext().getResourceAsStream(fileName);
         2.DownloadServlet
     4. 结合数据库文件上传下载
@@ -65,6 +65,11 @@
             4.编写service  FileBeanService
             5.编写servlet+jsp  mysqlUpload.jsp 
         3.
-            1.http://192.168.0.135:8080/fileUpload/mysqlUpload.jsp
-            2.http://192.168.0.135:8080/mysql/upload
+            1.http://192.168.0.135:8080/fileUpload/mysqlUpload.jsp   上传页面
+            2.http://192.168.0.135:8080/mysql/upload                 上传servlet
+            3.http://192.168.0.135:8080/mysql/download               下载servlet
+            4.下载页面
+            5.上传成功文件列表  fileUpload/uploadSuccess.jsp
+            6. 所有文件列表   FileUpload/ListFileServlet
+                http://192.168.0.135:8080/mysql/fileList 
     
