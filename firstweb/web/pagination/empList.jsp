@@ -101,6 +101,7 @@
     </table>
 
     <script>
+        // 改变每页显示条数
         function changePageSize() {
             var pageSize = document.getElementById("pagesize").value;
             var reg = /^[1-9][0-9]?$/;
@@ -112,6 +113,7 @@
             var url = "${pageContext.request.contextPath}/pagination/list?pageSize="+pageSize;
             window.location.href=url;
         }
+        // 跳转页面
         function changeCurrentPage() {
             var currentPage = document.getElementById("currentPage").value;
             var reg = /^[1-9][0-9]?$/;
@@ -127,6 +129,14 @@
             }
             var url = "${pageContext.request.contextPath}/pagination/list?currentPage="+currentPage+"&pageSize=${pageBean.pageSize}";
             window.location.href=url;
+        }
+        // 提交查询表单
+        function toPage(){
+            // 提交前,把当前页跳转到页码
+            document.getElementById("currentPage").value = pageNo;
+            //提交表单
+            var queryForm = document.getElementById("queryForm");
+            queryForm.submit();//提交表单
         }
 
     </script>

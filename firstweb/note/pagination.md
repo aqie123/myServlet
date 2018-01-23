@@ -1,15 +1,26 @@
-一：分页查询  pagination
+一：分页查询  pagination(Entity(PageBean Employee EmployeeQuery Department))->Dao->service->PageServlet->empList.jsp)
     1.分页核心：设计一个可以存储当前页所有分页相关数据的javabean对象
-        a. PageServlet
-            1.接收用户输入的员工查询条件,封装EmployeeQuery
-            2.
-            3.
-        b. PageService
-        c. PageDao : List<Employee> pageData(currentPage,pageSize)
-        d. PageBean 分页对象 (
-            data : 当页数据,
-            totalCount:总记录数
-           )
+        a. Entity
+            1.PageBean 分页对象 (
+                data : 当页数据,
+                totalCount:总记录数
+              )
+               维护要分页的对象 Employee
+            2.Employee : 内部维护关联Department对象
+            3.EmployeeQuery : 条件查询对象
+            4.Department : 部门类
+        b. PageDao : 
+            1.List<Employee> pageData(currentPage,pageSize)
+            2.自行封装结果集 : MyEmployeeResultSetHandler
+        c. PageService
+        d. PageServlet
+            1.从用户参数中获取当前页数据和每页大小
+            2.封装PageBean对象
+            3.接收用户输入的员工查询条件,封装EmployeeQuery查询对象
+            4.查询数据库,传入当页数据
+            5.查询部门信息
+            6.PageBean对象放入域对象中
+            7.转发jsp页面展示数据     
     2.编写Dao     : pagination.PageDao
         1.PageDao中实例化DepartmentDao
         2.PageDao自行封装结果集 MyEmployeeResultSetHandler
