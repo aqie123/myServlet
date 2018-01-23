@@ -43,9 +43,10 @@ public class MyDbutils {
     }
 
     // ScalarHandler() 返回long型 (常用)
-    private static void selectCount(String sql, QueryRunner queryRunner) throws SQLException {
+    public static long selectCount(String sql, QueryRunner queryRunner) throws SQLException {
         long count = (Long) queryRunner.query(sql,new ScalarHandler(),new Object[]{});
-        System.out.println(count);
+        // System.out.println(count);
+        return count;
     }
 
     // BeanListHandler 封装javabean对象到list中 (常用)

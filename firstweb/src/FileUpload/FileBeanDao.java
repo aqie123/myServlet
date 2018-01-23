@@ -1,5 +1,6 @@
 package FileUpload;
 
+import MetaData.MyDbutils;
 import mysql.JdbcUtil;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -42,8 +43,8 @@ public class FileBeanDao {
             throw new RuntimeException(e);
         }
     }
+    QueryRunner qr = new QueryRunner(JdbcUtil.getDataSource());
     public List<FileBean> findAll(){
-        QueryRunner qr = new QueryRunner(JdbcUtil.getDataSource());
         try {
             return (List<FileBean>)qr.query("select * from file_list",
                     new BeanListHandler<>(FileBean.class),
@@ -53,6 +54,7 @@ public class FileBeanDao {
             throw new RuntimeException(e);
         }
     }
+
 
     public static void main(String[] args) {
         FileBeanDao dao = new FileBeanDao();

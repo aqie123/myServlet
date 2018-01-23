@@ -138,7 +138,6 @@
     2.问题
         1.Connection 连接对象利用率低
         2.控制java程序连接数据库的并发连接次数(最大连接数)
-        3.
     3. 自定义连接池工具 MyPool.java
     4. 使用代理模式重写Connection close 方法   
         1.MyPool2.java
@@ -150,7 +149,7 @@
         2.BasicDataSource  连接池对象
     6.c3p0 连接池工具(框架hibernate内置连接池)
         1.c3p0-0.9.1.2.jar
-    7._beanutils 工具
+    7._beanutils 工具  BeanUtils/MyBean.java
         1. 方便开发者操作javabean对象
         2.作用：
             1. 拷贝一个javabean对象属性
@@ -164,7 +163,7 @@
             2.默认不支持字符串转date,手动注册一个日期转换器
             3.只拷贝javabean存在的属性(SetXXX)
             4.需要拷贝的数据时数组类型,只拷贝数组第一个
-        6.应用 (http://localhost:8080//contact/list)
+        6.应用 (http://localhost:8080/contact/list)
             1.优化 AddServlet    
     8.元数据 : 编写更通用的jdbc
         1.元数据
@@ -181,7 +180,7 @@
         4.① 由Connection对象的getMetaData()方法获取的是DatabaseMetaData对象。
       　　② 由PreparedStatement对象的getParameterMetaData ()方法获取的是ParameterMetaData对象。      
       　　③由ResultSet对象的getMetaData()方法获取的是ResultSetMetaData对象。
-    9._dbutils工具 (简单的jdbc代码封装) MyDbutils.java JdbcUtil.java 骉 淼 朰 嘔 庅荤
+    9._dbutils工具 (简单的jdbc代码封装) MyDbutils.java 【MetaData.JdbcUtil】   骉 淼 朰 嘔 庅荤
         1.update() 更新
         2.query() 查询
         3.步骤

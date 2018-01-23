@@ -6,3 +6,12 @@
 6.Introduce Foreign Method
 7.Introduce Local Extension
 8.move Method
+
+一: Summery of Design heuristics
+    1.
+    2.
+    3.
+    4.
+    5.
+    6.
+    7.

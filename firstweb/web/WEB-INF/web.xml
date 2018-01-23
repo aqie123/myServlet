@@ -461,4 +461,22 @@
         <servlet-name>ListFileServlet</servlet-name>
         <url-pattern>/mysql/fileList</url-pattern>
     </servlet-mapping>
+    <!--Employee 分页列表 -->
+    <servlet>
+        <servlet-name>PageServlet</servlet-name>
+        <servlet-class>pagination.PageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PageServlet</servlet-name>
+        <url-pattern>/pagination/list</url-pattern>
+    </servlet-mapping>
+    <!--Department 部门列表条件查询 -->
+    <servlet>
+        <servlet-name>DepartmentServlet</servlet-name>
+        <servlet-class>pagination.DepartmentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DepartmentServlet</servlet-name>
+        <url-pattern>/pagination/department</url-pattern>
+    </servlet-mapping>
 </web-app>
