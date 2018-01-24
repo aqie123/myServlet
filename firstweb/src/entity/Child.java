@@ -5,6 +5,8 @@ public class Child {
     private String name;
     private String age;
 
+    public Child(){}
+
     public Child(int id,String name){
         super();
         this.id = id;
@@ -36,7 +38,7 @@ public class Child {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "name :"+this.name;
     }
 
     @Override

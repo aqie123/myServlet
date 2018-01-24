@@ -13,10 +13,8 @@
     <title>character</title>
 </head>
 <body>
-我是汉字
 <fmt:setBundle basename="MultiLanguage/message"/>
     <fmt:message key="username"></fmt:message> ：<input type="text" name="username">
     <fmt:message key="password"></fmt:message> ：<input type="text" name="password">
-
 </body>
 </html>
