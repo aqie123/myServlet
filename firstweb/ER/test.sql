@@ -103,3 +103,12 @@ create table file_list(
   `info` VARCHAR(200)  DEFAULT '' COMMENT '文件描述',
   PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文件信息表';
+
+# 测试反射注解
+DROP TABLE IF EXISTS `lion_list`;
+CREATE TABLE lion_list(
+  lid int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `lname` VARCHAR(50)  DEFAULT '' COMMENT '昵称',
+  PRIMARY KEY (`lid`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='LION信息表';
+INSERT INTO lion_list(lname) VALUES ("a"),("b"),("c");

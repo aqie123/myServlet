@@ -1,13 +1,23 @@
 package entity;
 
+import ReflectionOfGeneric.Column;
+import ReflectionOfGeneric.Table;
+
 import java.util.Date;
 
+@Table(tableName="student")
 public class Student {
+    @Column(name="sid")
     private int id;
+    @Column(name="sname")
     private String name;
+    @Column(name="sgender")
     private boolean gender;
     private double score;
     private Date birth;
+    private int create_time;
+
+    public Student(){}
 
     public void setId(int id) {
         this.id = id;
@@ -47,6 +57,14 @@ public class Student {
 
     public void setScore(double score) {
         this.score = score;
+    }
+
+    public int getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(int create_time) {
+        this.create_time = create_time;
     }
 
     @Override

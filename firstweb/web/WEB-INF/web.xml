@@ -479,4 +479,13 @@
         <servlet-name>DepartmentServlet</servlet-name>
         <url-pattern>/pagination/department</url-pattern>
     </servlet-mapping>
+    <!--类加载器 ClassLoader -->
+    <servlet>
+        <servlet-name>ClassLoaderServlet</servlet-name>
+        <servlet-class>classLoader.ClassLoaderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClassLoaderServlet</servlet-name>
+        <url-pattern>/classLoader</url-pattern>
+    </servlet-mapping>
 </web-app>
