@@ -112,3 +112,15 @@ CREATE TABLE lion_list(
   PRIMARY KEY (`lid`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='LION信息表';
 INSERT INTO lion_list(lname) VALUES ("a"),("b"),("c");
+
+DROP TABLE IF EXISTS user_list;
+CREATE TABLE user_list(
+  id varchar(50)  NOT NULL,
+  name varchar(30) NOT NULL DEFAULT '' COMMENT '用户名',
+  `password` char(32) NOT NULL DEFAULT '' COMMENT '用户密码',
+  email varchar(30) NOT NULL DEFAULT '' COMMENT '用户注册邮箱',
+  status TINYINT(1) NOT NULL DEFAULT 0 COMMENT '1:激活 2:未激活',
+  validateCode  varchar(50) NOT NULL DEFAULT '' COMMENT '随机激活码',
+  `create_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '注册时间',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='邮箱激活用户表';

@@ -488,4 +488,31 @@
         <servlet-name>ClassLoaderServlet</servlet-name>
         <url-pattern>/classLoader</url-pattern>
     </servlet-mapping>
+    <!--易付宝支付 PayServlet -->
+    <servlet>
+        <servlet-name>PayServlet</servlet-name>
+        <servlet-class>onlinePayment.PayServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PayServlet</servlet-name>
+        <url-pattern>/onlinePayment/pay</url-pattern>
+    </servlet-mapping>
+    <!--邮箱注册 MailRegServlet : /mailReg -->
+    <servlet>
+        <servlet-name>MailRegServlet</servlet-name>
+        <servlet-class>MailRegister.MailRegServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MailRegServlet</servlet-name>
+        <url-pattern>/mailReg</url-pattern>
+    </servlet-mapping>
+    <!--邮箱激活 MailActiveServlet : /mailActive -->
+    <servlet>
+        <servlet-name>MailActiveServlet</servlet-name>
+        <servlet-class>MailRegister.MailActiveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MailActiveServlet</servlet-name>
+        <url-pattern>/mailActive</url-pattern>
+    </servlet-mapping>
 </web-app>
