@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--1).调用无参构造函数-->
+    <bean id="user" class="entity.User">
+    </bean>
+
+    <!--2).获取容器中字符串-->
+    <bean id="str" class="java.lang.String">
+        <constructor-arg value="aqie"></constructor-arg>
+    </bean>
+
+    <!--3).调用有参构造器,创建对象
+        1.value 当直接给属性值的时候使用value赋值
+		2.ref   当引用的是IOC容器中的对象的时候，使用ref
+    -->
+    <bean id="user2" class="entity.User">
+        <constructor-arg index="0" type="int" value="10000"></constructor-arg>
+        <constructor-arg index="1" type="java.lang.String" ref="str"></constructor-arg>
+    </bean>
+
+    <!--IOC容器,创建对象,工厂创建对象
+    -->
+    <!--工厂静态方法
+        1. class 指定工厂的类型；
+        2. factory-method: 工厂类的静态方法
+    -->
+    <bean id="user3" class="createObj.UserFactory" factory-method="getStaticInstance"></bean>
+
+    <!--
+        非静态方法创建对象
+        先创建工厂实例
+    -->
+    <bean id="factory" class="createObj.UserFactory"></bean>
+    <bean id="user4" factory-bean="factory" factory-method="getInstance"></bean>
+
+    <!--IOC容器，给对象属性赋值-->
+    <bean id="user5" class="entity.User">
+        <!-- set后面 的值-->
+        <property name="id" value="002"></property>
+        <property name="name" value="aqie"></property>
+        <!--list集合赋值-->
+        <property name="list">
+            <list>
+                <value>cn</value>
+                <value>lua</value>
+            </list>
+        </property>
+        <!--map集合赋值-->
+        <property name="map">
+            <map>
+                <entry key="cn" value="China"></entry>
+                <entry key="us" value="America"></entry>
+            </map>
+        </property>
+        <!--Properties 对象赋值-->
+        <property name="props">
+            <props>
+                <prop key="name">aqie</prop>
+                <prop key="pwd">123</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

@@ -39,3 +39,9 @@ JavaEE : 13种技术
     11. JAF(JavaBeans Activation Framework)
     12. JDBC(Java Database Connectivity
     13. JNDI(Java Name and Directory Interface) 
+
+相关技术：
+    1.jwt
+    2.shiro
+    3.zookeeper
+    4.
