@@ -52,6 +52,9 @@
             2.集合属性(list/map/property)
         3) 应用
             1.Dao/Service/Action实例,处理依赖关系
-五：依赖注入的几种方式
+五：依赖注入注意
+    1.name：对应的set属性
+    2.ref : 对应的id值
+六：自动装配
     1.
     2.

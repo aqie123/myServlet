@@ -1,22 +1,33 @@
 package junit;
 
+import action.AnimalAction;
 import action.UserAction;
 import entity.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
-    public void testApp(){
-        UserAction action = new UserAction();
-        action.execute();
-    }
+    private ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml",App.class);
 
     public static void main(String[] args) {
         // test();
         App app = new App();
         // app.test2();
         // app.test3();
-        app.test4();
+        // app.test4();
+        // app.test5();
+        app.test6();
+    }
+
+    // p 名称空间给属性注入
+    private void test6(){
+        User user = (User)applicationContext.getBean("user6");
+        System.out.println(user);
+    }
+    // 依赖注入应用
+    private void test5(){
+        UserAction action = (UserAction)applicationContext.getBean("action");
+        action.execute();
     }
     // IOC容器，给对象属性赋值
     private void test4(){

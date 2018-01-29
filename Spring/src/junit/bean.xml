@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
 
     <!--1).调用无参构造函数-->
     <bean id="user" class="entity.User">
@@ -63,4 +66,26 @@
             </props>
         </property>
     </bean>
+
+    <!-- ==================配置需要创建的对象,依赖关系处理======================-->
+    <!--方式一：通过set方法注入-->
+    <!--UserDao对象-->
+    <!--<bean id="dao" class="dao.UserDao"></bean>-->
+    <!--UserService对象-->
+    <!--<bean id="service" class="service.UserService">
+        <property name="userDao" ref="dao"></property>
+    </bean>-->
+    <!--UserAction 对象-->
+    <bean id="action" class="action.UserAction">
+        <!--<property name="userService" ref="service"></property>-->
+    </bean>
+
+    <!--p命名空间 给属性注入值-->
+    <!--<bean id="user6" class="entity.User">
+        <property name="id" value="201114002"></property>
+    </bean>-->
+    <bean id="user6" class="entity.User" p:id="201114002" p:name-ref="str"></bean>
+
+    <!-- ==================Animal对象======================-->
+    <bean id="animalAction" class="action.AnimalAction"></bean>
 </beans>

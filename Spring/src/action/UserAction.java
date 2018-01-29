@@ -12,6 +12,7 @@ public class UserAction {
     // 创建service
     private UserService userService = new UserService();
 
+    // 接收IOC容器注入值
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
@@ -24,7 +25,11 @@ public class UserAction {
     public static void main(String[] args) {
         // test();
         // test1();
-        // 从IOC容器读取对象 applicationContext.xml 配置文件
+        test2();
+    }
+
+    // 从IOC容器读取对象 applicationContext.xml 配置文件
+    private static void test2() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
         // 获取对象
         UserAction userAction = (UserAction)ac.getBean("action");
