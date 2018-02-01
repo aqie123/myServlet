@@ -1,13 +1,15 @@
 package junit;
 
-import action.AnimalAction;
-import action.UserAction;
-import entity.User;
+import base.action.AnimalAction;
+import base.action.UserAction;
+import base.entity.Animal;
+import base.entity.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
     private ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml",App.class);
+    private ApplicationContext ac2 = new ClassPathXmlApplicationContext("bean2.xml",App.class);
 
     public static void main(String[] args) {
         // test();
@@ -16,7 +18,16 @@ public class App {
         // app.test3();
         // app.test4();
         // app.test5();
-        app.test6();
+        // app.test6();
+        app.test7();
+    }
+
+    // 自动装配
+    private void test7(){
+        Animal animal = (Animal)ac2.getBean("animal");
+        System.out.println(animal);
+        AnimalAction action = (AnimalAction)ac2.getBean("animalAction");
+        action.execute();
     }
 
     // p 名称空间给属性注入
@@ -24,11 +35,13 @@ public class App {
         User user = (User)applicationContext.getBean("user6");
         System.out.println(user);
     }
+
     // 依赖注入应用
     private void test5(){
-        UserAction action = (UserAction)applicationContext.getBean("action");
+        UserAction action = (UserAction)applicationContext.getBean("base/action");
         action.execute();
     }
+
     // IOC容器，给对象属性赋值
     private void test4(){
         ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml",this.getClass());
@@ -60,7 +73,6 @@ public class App {
         System.out.println(user2);
     }
 
-
     // 通过src目录下 applicationContext.xml 创建容器对象
     private static void test() {
         ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -75,4 +87,5 @@ public class App {
         User user7 = (User)ac.getBean("user6");
         ac.destroy();
     }
+
 }

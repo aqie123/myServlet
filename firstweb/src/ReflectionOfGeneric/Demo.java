@@ -2,7 +2,6 @@ package ReflectionOfGeneric;
 
 import org.junit.Test;
 
-import javax.print.attribute.standard.NumberUp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +27,7 @@ public class Demo {
 
     @Test
     public void test() throws Exception {
-        Class<?> clazz = Class.forName("entity.Child");
+        Class<?> clazz = Class.forName("base.entity.Child");
         /**
          * 没有加上泛型,会报警告,希望加上泛型特征
          */

@@ -1,7 +1,7 @@
 package MetaData;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-import entity.Student;
+import base.entity.Student;
 import libs.WebUtil;
 
 import java.sql.*;

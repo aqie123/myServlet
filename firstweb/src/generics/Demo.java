@@ -1,7 +1,6 @@
 package generics;
 
 import com.sun.org.apache.xpath.internal.operations.String;
-import dao.InterfaceDao;
 import org.junit.Test;
 
 import java.util.ArrayList;

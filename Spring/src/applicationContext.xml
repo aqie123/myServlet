@@ -3,27 +3,27 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--创建dao实例-->
-    <bean id="userDao" class="dao.UserDao">
+    <bean id="userDao" class="base.dao.UserDao">
 
     </bean>
     <!--创建service实例-->
-    <bean id="userService" class="service.UserService">
+    <bean id="userService" class="base.service.UserService">
         <!--name: set方法后面 ref: 上面id所指对象-->
         <property ref="userDao"  name="userDao">
 
         </property>
     </bean>
     <!--创建action实例-->
-    <bean id="action" class="action.UserAction">
+    <bean id="action" class="base.action.UserAction">
         <property name="userService" ref="userService">
 
         </property>
     </bean>
     <!--创建User类实例   将对象加入IOC容器-->
-    <bean id="userBean" class="entity.User" name="user2,user3 user4">
+    <bean id="userBean" class="base.entity.User" name="user2,user3 user4">
 
     </bean>
-    <bean name="user6" class="entity.User" scope="prototype" init-method="init"
+    <bean name="user6" class="base.entity.User" scope="prototype" init-method="init"
           destroy-method="destory" lazy-init="true">
 
     </bean>

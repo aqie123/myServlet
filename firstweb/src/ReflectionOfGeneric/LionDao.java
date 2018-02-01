@@ -1,6 +1,6 @@
 package ReflectionOfGeneric;
 
-import entity.Lion;
+import base.entity.Lion;
 
 import java.util.List;
 

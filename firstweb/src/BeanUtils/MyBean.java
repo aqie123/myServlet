@@ -1,10 +1,9 @@
 package BeanUtils;
 
-import entity.Student;
+import base.entity.Student;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.Converter;
-import org.apache.commons.beanutils.locale.converters.DateLocaleConverter;
 
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
@@ -37,7 +36,7 @@ class Test{
 
     // 2. 使用反射构造对象
     void method2() throws InvocationTargetException, IllegalAccessException, ClassNotFoundException, InstantiationException {
-        Object s2 = Class.forName("entity.Student").newInstance();
+        Object s2 = Class.forName("base.entity.Student").newInstance();
         // 注册日期转换器(需要注册的转换器,转换到的类型)
         ConvertUtils.register(new MyDateConvert(),Date.class);
         // 拷贝到对象,拷贝属性,拷贝的值
@@ -51,7 +50,7 @@ class Test{
     // 3.从一个javabean拷贝到另一个javabean对象
     void method3() throws ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException {
         Student student = getStudent();
-        Object s2 = Class.forName("entity.Student").newInstance();
+        Object s2 = Class.forName("base.entity.Student").newInstance();
         // student 拷贝到s2对象中去
         // (拷贝到对象,原来对象)
         BeanUtils.copyProperties(s2,student);
@@ -66,7 +65,7 @@ class Test{
         map.put("id","007");
         map.put("gender","false");
         map.put("score","66.66");
-        Object s2 = Class.forName("entity.Student").newInstance();
+        Object s2 = Class.forName("base.entity.Student").newInstance();
         BeanUtils.copyProperties(s2,map);
         System.out.println(s2);
     }

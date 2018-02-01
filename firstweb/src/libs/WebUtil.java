@@ -1,12 +1,9 @@
 package libs;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-import entity.Contact;
-import entity.Student;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.http.HttpServletRequest;
-import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

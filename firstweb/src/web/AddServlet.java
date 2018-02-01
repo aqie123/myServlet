@@ -1,19 +1,16 @@
 package web;
 
 import MyException.NameExistException;
-import entity.Contact;
+import base.entity.Contact;
 import libs.WebUtil;
-import org.apache.commons.beanutils.BeanUtils;
-import service.ContactService;
-import service.InterfaceService;
+import base.service.ContactService;
+import base.service.InterfaceService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
 
 public class AddServlet extends HttpServlet{
 

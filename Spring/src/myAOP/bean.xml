@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context.xsd
+
+                            http://www.springframework.org/schema/aop
+                            http://www.springframework.org/schema/aop/spring-aop.xsd"
+>
+    <!--方式五 注解扫描-->
+    <context:component-scan base-package="myAOP"></context:component-scan>
+
+    <!--代理工厂 实例化工厂-->
+    <bean id="proxyFactory" class="myAOP.ProxyFactory"></bean>
+    <!--调用工厂方法,返回代理后对象
+        factory-bean : 上面对应id
+        factory-method : 代理工厂方法
+        ref : 被代理类
+        ref:  关注点类
+    -->
+    <bean id="adminDaoProxy" factory-bean="proxyFactory" factory-method="getProxyInstance">
+        <constructor-arg index="0" ref="adminDao"></constructor-arg>
+        <constructor-arg index="1" ref="aop"></constructor-arg>
+    </bean>
+
+</beans>

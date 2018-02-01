@@ -1,8 +1,8 @@
 package web;
 
-import entity.Contact;
-import service.ContactService;
-import service.InterfaceService;
+import base.entity.Contact;
+import base.service.ContactService;
+import base.service.InterfaceService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

@@ -1,6 +1,6 @@
 package MyJUnit;
 
-import entity.Child;
+import base.entity.Child;
 import org.junit.Assert;
 import org.junit.Test;
 

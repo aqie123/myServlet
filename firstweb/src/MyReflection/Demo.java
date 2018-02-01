@@ -1,6 +1,6 @@
 package MyReflection;
 
-import entity.Child;
+import base.entity.Child;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -48,7 +48,7 @@ class Test{
      */
     void method1() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         // 1. 通过Class类得到Constructor类
-        Class clazz = Class.forName("entity.Child");
+        Class clazz = Class.forName("base.entity.Child");
         // 2. 根据不同的参数列表,获取不同构造方法Constructor对象
         // 2.1 调用无参的构造方法
         Constructor constructor = clazz.getConstructor(null);
@@ -68,7 +68,7 @@ class Test{
      */
     void method2() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
         // 1.通过Class类对象得到Method类对象
-        Class clazz = Class.forName("entity.Child");
+        Class clazz = Class.forName("base.entity.Child");
         Object object = clazz.getConstructor(null).newInstance(null);
         /**
          * 1.getMethod() 获取类上的公共方法 public
@@ -99,7 +99,7 @@ class Test{
      */
     void method3() throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException, InstantiationException {
         // 1.通过Class得到Field类对象
-        Class clazz = Class.forName("entity.Child");
+        Class clazz = Class.forName("base.entity.Child");
         // 1.1简化版本，只能用无参构造函数
         Object object = clazz.newInstance();
         /**

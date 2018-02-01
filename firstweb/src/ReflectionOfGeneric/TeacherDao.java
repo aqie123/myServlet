@@ -1,6 +1,6 @@
 package ReflectionOfGeneric;
 
-import entity.Student;
+import base.entity.Student;
 import mysql.JdbcUtil;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;

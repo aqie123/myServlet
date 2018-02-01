@@ -1,7 +1,7 @@
 package web;
 
-import service.ContactService;
-import service.InterfaceService;
+import base.service.ContactService;
+import base.service.InterfaceService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

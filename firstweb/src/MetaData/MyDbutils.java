@@ -1,8 +1,7 @@
 package MetaData;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-import entity.Student;
-import libs.WebUtil;
+import base.entity.Student;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.*;
