@@ -110,10 +110,12 @@
             3.方法为final/static 不会被代理拦截
 九：AOP 模式：(分离业务代码和关注点代码,
                 关注点代码，写一次,执行业务代码时动态植入关注点代码)
-    1.手动实现aop编程
+    1.手动实现aop编程       myProxy
         a.UserDao->TransactionAop->bean.xml(开启注解扫描)->App
         b.AdminDao->ProxyFactory->bean.xml()
-    2.spring AOP注解方式
+    2.spring AOP注解方式     myAOP.AnnotationAop   bean2.xml  
+        1.
+        2.
     3.Spring Aop XML配置
     4.切入点表达式
     5.aop 编程步骤

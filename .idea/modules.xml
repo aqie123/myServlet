@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Spring/Spring.iml" filepath="$PROJECT_DIR$/Spring/Spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/firstweb/firstweb.iml" filepath="$PROJECT_DIR$/firstweb/firstweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myMaven/myMaven.iml" filepath="$PROJECT_DIR$/myMaven/myMaven.iml" />
       <module fileurl="file://$PROJECT_DIR$/myServlet.iml" filepath="$PROJECT_DIR$/myServlet.iml" />
     </modules>
   </component>
