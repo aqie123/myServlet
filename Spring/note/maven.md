@@ -17,4 +17,4 @@
     --pom.xml: 项目对象模型的描述
 三：maven 相关网址
     1，http://blog.csdn.net/qq_32588349/article/details/51461182
-    2.http://mvnrepository.com/
+    2.http://mvnrepository.com/    maven 官网

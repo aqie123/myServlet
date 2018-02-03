@@ -9,10 +9,10 @@
     4. bean创建细节
     5. spring jar
         1.commons-logging-1.2 :
-        2.spring-beans-4.3.14.RELEASE :spring源码,bean节点管理
-        3.spring-context-4.3.14.RELEASE：spring上下文
-        4.spring-core-4.3.14.RELEASE:IOC容器
-        5.spring-expression-4.3.14.RELEASE：spring 表达式
+        2.spring-beans-4.3.14.RELEASE :                          spring源码,bean节点管理
+        3.spring-context-4.3.14.RELEASE：                        spring上下文
+        4.spring-core-4.3.14.RELEASE:                            IOC容器
+        5.spring-expression-4.3.14.RELEASE：                     spring 表达式
     6.开发流程：
         引入jar->新建xml配置文件,引入约束->配置bean->测试
 二：IOC容器
@@ -108,16 +108,32 @@
             1.目标对象可以不实现接口
             2.目标类不能为final，final报错
             3.方法为final/static 不会被代理拦截
-九：AOP 模式：(分离业务代码和关注点代码,
-                关注点代码，写一次,执行业务代码时动态植入关注点代码)
+九：AOP(Aspect Object Programming) 模式：(  a.分离业务代码和关注点代码,(jdk/cglib 代理)
+                 b.关注点代码，写一次,执行业务代码时动态植入关注点代码
+                 c. 切面：关注点代码形成的类，叫做切面
+                 d. springAop编程,也叫面向切面编程
+                )
     1.手动实现aop编程       myProxy
         a.UserDao->TransactionAop->bean.xml(开启注解扫描)->App
         b.AdminDao->ProxyFactory->bean.xml()
-    2.spring AOP注解方式     myAOP.AnnotationAop   bean2.xml  
+    2.spring AOP注解方式(实现AOP编程)     myAOP.AnnotationAop   bean2.xml  
+        1. 
+        2.
+    3.Spring Aop XML配置实现AOP编程
         1.
         2.
-    3.Spring Aop XML配置
-    4.切入点表达式
+    4.切入点表达式：
+        1.Spring 在初始化容器时,会根据切入点表达式规则,符合拦截规则的方法
+                        所在的类生成代理对象
+        2.拦截方法,给方法所在的类，生成代理对象 
+        3.语法 
+            execution(
+            modifiers-pattern?   				拦截的方法的访问修饰符
+            ret-type-pattern                   方法返回类型，必须指定
+            declaring-type-pattern?             拦截的方法所在的类
+            name-pattern(param-pattern)       拦截的方法（以及方法的参数列表）
+            throws-pattern?)                  方法声明的异常
+        4.拦截，一定要指定到方法！     
     5.aop 编程步骤
         1. 引入aop相关jar文件,(aopalliance-1.0,spring-aop-4.3.14.RELEASE,aspectjrt,aspectjweaver)
         2. 引入aop名称空间
@@ -139,8 +155,36 @@
         3. 如果目标对象没有实现接口，使用cglib代理！
         4. 从容器获取代理后的对象
         5. 执行代理对象的方法，在运行时期，动态植入“切面”类中的“通知”!
+    8.切面应用
+        1.事务
+        2.权限控制
+        3.日志
+    9. note
+        1. SpringAop 编程,如果目标对象有实现接口,
+            符合切入点表达式的类,从容器获取对象时,一定要通过接口接收
+        2. 目标对象没有实现接口,使用cglib代理
+        3. 目标对象未实现接口,且为final,不能使用aop编程
 十：spring 对jdbc模块支持
-    1.
-
+        1.jar文件
+            1.spring-jdbc-4.3.14.RELEASE        工具包类
+            2.spring-tx-4.3.14.RELEASE          事务支持依赖包
+            3.mysql-connector-java.jar : Class.forName("com.mysql.jdbc.Driver");
+            4.导入包 commons-pool-1.5.6.jar  commons-dbcp-1.4.jar
+        2.开发步骤
+            1. 原始的jdbc操作代码
+                1.mysql-connector-java.jar
+            2. 对连接管理
+                1. c3p0-0.9.5.2.jar
+                2. 
+            3. 对jdbc操作进行简化
+               JdbcTemplate  工具类Api
+              JdbcTemplate与DataSource依赖关系
+                1.创建JdbcTemplate对象.实例化 JdbcTemplate 和
+                2. 加载Properties配置文件,修改 <bean id="dataSource"
+        3. 重点
+            1. Aop, xml配置方式实现
+        	2. Aop, 注解方式实现
+        	3. 三种代理模式，练习
+        	4. Spring 对jdbc支持
 十一：快捷键
     1.Win+D或者Win+L

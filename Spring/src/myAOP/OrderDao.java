@@ -3,8 +3,8 @@ package myAOP;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class AdminDao implements Dao{
+public class OrderDao {
     public void save(){
-        System.out.println("AdminDao 保存 ");
+        System.out.println("save Order！");
     }
 }
