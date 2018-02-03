@@ -188,3 +188,42 @@
         	4. Spring 对jdbc支持
 十一：快捷键
     1.Win+D或者Win+L
+十二：Spring 声明式事务管理 (Programmatic transaction management)
+        1. 编程式事务管理,实现细粒度的事务控制,如：jdbc,hibernate
+            a.JDBC事务控制 con.setAutoCommit(false):设置事务手动提交
+            b.hibernate : session.beginTransaction(); 开启事务
+            c.优缺点：
+                1.事务控制精确
+                2. 事务代码与业务代码耦合在一起,事务代码不能共用
+        2.优点
+            1.AOP 对指定方法添加事务控制,只需添加配置
+            2. 只能对某个方法应用事务,(切入点表达式拦截的是方法)
+        3.事务控制在service层
+        4.步骤
+            1.引入jar文件
+                Spring-Core,Spring-jdbc,Spring-tx(事务),Spring-aop,驱动包,连接池
+            2.dao/service
+            3.配置
+                1.数据源
+                2. JdbcTemplate
+                3. Dao/Service
+                4.spring声明式事务管理配置(拦截service方法的执行，动态植入事务控制代码！)
+            4.测试
+        5. 配置bean.xml,dataSource  一定用到连接池
+十三：Spring 声明式事务管理,注解实现
+    1. 配置bean2.xml
+    2. 在Service层 给指定方法添加注解 @Transactional
+十四：事务属性 (Transaction Attributes)
+    1.REQUIRES_NEW  当前执行方法必须在事务环境下运行！
+      且 当前执行方法始终开启一个新的事务！    
+      REQUIRED       当前执行方法必须在事务环境下运行！
+      				如果调用当前方式时候已经有一个事务环境，当前执行方法会加入当前事务环境，就不开启新的事务；
+      				如果调用当前方法时候没有事务环境，就开启一个新的事务!
+      SUPPORTS       支持事务环境！ 如果当前方法没有事务，也可以运行！
+      Never           当前方法不能再事务环境下运行！
+    2.
+十五：Spring 对SessionFactory 的三种管理方式
+    1.
+    2.
+    3.
+十六：Spring中操作数据库
