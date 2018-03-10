@@ -25,6 +25,7 @@ public class LoginParamServlet extends HttpServlet {
             userName = new String(userName.getBytes("iso-8859-1"),"utf-8");
         }*/
         System.out.println(userName);
+        System.out.println("姓名");
     }
 
     @Override
